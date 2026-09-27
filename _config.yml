@@ -1,3 +1,25 @@
-theme: jekyll-theme-minimal
-title: Octocat's homepage
-description: Bookmark this to keep an eye on my project updates!
+title: "Edgar Monroy"
+tagline: "3D Character Artist — stylized & photoreal for film"
+description: >-
+  Portfolio of a 3D character artist specializing in stylized and
+  photorealistic modeling, texturing and lookdev for animation and
+  film production.
+email: "edgar@example.com"
+cta_label: "Start a project"
+
+url: "https://example.com"
+baseurl: ""
+
+social:
+  linkedin: "https://www.linkedin.com/in/example"
+  artstation: "https://www.artstation.com/example"
+  instagram: "https://www.instagram.com/example"
+
+markdown: kramdown
+permalink: pretty
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules

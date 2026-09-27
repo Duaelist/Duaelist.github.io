@@ -1,0 +1,27 @@
+<section class="hero">
+  <div class="hero__text">
+    <h1>{{ site.title }}</h1>
+    <p class="hero__role">{{ site.tagline }}</p>
+    <p class="hero__meta">Modeling · Texturing · Lookdev · 3D pipelines</p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="mailto:{{ site.email }}">{{ site.cta_label }}</a>
+      <a class="btn btn--ghost" href="#work">View the work</a>
+    </div>
+  </div>
+
+  <div class="hero__viewport" aria-hidden="true">
+    <div class="viewport">
+      <div class="viewport__grid"></div>
+      <div class="block block--a"></div>
+      <div class="block block--b"></div>
+      <div class="block block--c"></div>
+      <div class="block block--selected">
+        <span class="tick tick--tl"></span>
+        <span class="tick tick--tr"></span>
+        <span class="tick tick--bl"></span>
+        <span class="tick tick--br"></span>
+      </div>
+    </div>
+    <p class="viewport__caption">viewport_01 — blockout pass</p>
+  </div>
+</section>

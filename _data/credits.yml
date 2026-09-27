@@ -1,0 +1,23 @@
+# One entry per poster card in the "Selected credits" strip.
+# `image` is optional — leave it blank to show a placeholder block,
+# or point it at a file under /assets/img/credits/.
+- title: "Feature Film Title"
+  role: "Character Artist"
+  year: "2024"
+  image: ""
+- title: "Animated Series Title"
+  role: "Modeling & Texture"
+  year: "2023"
+  image: ""
+- title: "Streaming Feature Title"
+  role: "Lookdev Artist"
+  year: "2023"
+  image: ""
+- title: "Kids Series Title"
+  role: "Hero Asset Modeling"
+  year: "2022"
+  image: ""
+- title: "Short Film Title"
+  role: "Creature Sculpt"
+  year: "2021"
+  image: ""

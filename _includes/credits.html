@@ -1,0 +1,18 @@
+<section class="credits" id="credits">
+  <div class="section__head">
+    <h2>Selected credits</h2>
+    <p>Feature and series work as a character and asset artist.</p>
+  </div>
+
+  <div class="credits__row">
+    {% for c in site.data.credits %}
+    <article class="credit-card">
+      <div class="credit-card__art"{% if c.image != "" %} style="background-image:url('{{ c.image | relative_url }}');"{% endif %}>
+        {% if c.image == "" %}<span class="credit-card__placeholder">{{ forloop.index }}</span>{% endif %}
+      </div>
+      <h3>{{ c.title }}</h3>
+      <p class="meta">{{ c.role }} · {{ c.year }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>

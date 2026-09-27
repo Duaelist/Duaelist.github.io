@@ -1,0 +1,54 @@
+# One entry per tile in the "Selected work" masonry grid.
+# `image` is optional — leave it blank to show a placeholder block,
+# or point it at a file under /assets/img/work/.
+# `height` roughly controls the tile's size in the masonry layout.
+# `accent: true` gives a tile the red highlight treatment — use it sparingly.
+- title: "Character Study 01"
+  category: "Stylized bust"
+  height: 340
+  image: ""
+- title: "Creature Sculpt"
+  category: "Zbrush · high poly"
+  height: 240
+  image: ""
+  accent: true
+- title: "Hard-surface Prop"
+  category: "Game-ready asset"
+  height: 200
+  image: ""
+- title: "Cartoon Character"
+  category: "Stylized · rigged"
+  height: 300
+  image: ""
+- title: "Photoreal Bust"
+  category: "Skin shading study"
+  height: 380
+  image: ""
+- title: "Environment Prop Set"
+  category: "Hard surface"
+  height: 220
+  image: ""
+- title: "Companion Creature"
+  category: "Zbrush · retopo"
+  height: 260
+  image: ""
+- title: "Hero Character"
+  category: "Production ready"
+  height: 340
+  image: ""
+- title: "Texture Study"
+  category: "Lookdev"
+  height: 200
+  image: ""
+- title: "Stylized Animal"
+  category: "Modeling & texture"
+  height: 280
+  image: ""
+- title: "Armor Set"
+  category: "Hard surface"
+  height: 240
+  image: ""
+- title: "Concept Sculpt"
+  category: "Blockout pass"
+  height: 200
+  image: ""

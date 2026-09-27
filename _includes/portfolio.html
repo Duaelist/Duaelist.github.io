@@ -1,0 +1,17 @@
+<section class="portfolio" id="work">
+  <div class="section__head">
+    <h2>Selected work</h2>
+    <p>Personal studies and production-ready assets.</p>
+  </div>
+
+  <div class="masonry">
+    {% for item in site.data.gallery %}
+    <figure class="tile{% if item.accent %} tile--accent{% endif %}" style="height: {{ item.height }}px;{% if item.image != "" %} background-image:url('{{ item.image | relative_url }}');{% endif %}">
+      <figcaption>
+        <span class="tile__title">{{ item.title }}</span>
+        <span class="tile__category">{{ item.category }}</span>
+      </figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+</section>
