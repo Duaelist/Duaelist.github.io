@@ -1,4 +1,4 @@
-# Edgar Monroy — Jekyll portfolio theme
+# Jekyll portfolio theme
 
 A single-page Jekyll theme for a 3D character artist / stylized portfolio,
 inspired by the layout of blockout.red: a hero, a horizontal credits strip,
