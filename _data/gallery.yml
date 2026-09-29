@@ -3,14 +3,14 @@
 # or point it at a file under /assets/img/work/.
 # `height` roughly controls the tile's size in the masonry layout.
 # `accent: true` gives a tile the red highlight treatment — use it sparingly.
-- title: "Character Study 01"
-  category: "Stylized bust"
+- title: "Flipbook VFX"
+  category: "VFX"
   height: 340
-  image: ""
-- title: "Creature Sculpt"
+  image: "sheetf.tif"
+- title: "3D Arch Render"
   category: "Zbrush · high poly"
   height: 240
-  image: ""
+  image: "re1.jpg"
   accent: true
 - title: "Hard-surface Prop"
   category: "Game-ready asset"
