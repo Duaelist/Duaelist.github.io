@@ -1,9 +1,9 @@
 title: "Rodrigo Alejandre"
-tagline: "3D Character Artist — stylized & photoreal for film"
+tagline: "Technical Artist Game Developer"
 description: >-
-  Portfolio of a 3D character artist specializing in stylized and
-  photorealistic modeling, texturing and lookdev for animation and
-  film production.
+I’m a Game Designer & QA professional 
+who bridges creative intuition with 
+data-driven quality strategy.
 email: "roderykz@gmail.com"
 cta_label: "Start a project"
 
@@ -11,9 +11,9 @@ url: "https://duaelist.github.io/"
 baseurl: ""
 
 social:
-  linkedin: "https://www.linkedin.com/in/example"
-  artstation: "https://www.artstation.com/example"
-  instagram: "https://www.instagram.com/example"
+  linkedin: "https://www.linkedin.com/in/duael/"
+  artstation: "https://www.artstation.com/roderykzal"
+  instagram: "https://www.instagram.com/duaelist/"
 
 markdown: kramdown
 permalink: pretty
