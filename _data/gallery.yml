@@ -6,49 +6,49 @@
 - title: "Flipbook VFX"
   category: "VFX"
   height: 340
-  image: "/assets/img/work/sheetf.jpg"
-- title: "3D Arch Render"
-  category: "Zbrush · high poly"
-  height: 240
-  image: "/assets/img/work/re1.jpg"
+  image: "/assets/img/work/sheetf.png"
   accent: true
-- title: "Hard-surface Prop"
-  category: "Game-ready asset"
+- title: "3D House Render"
+  category: "Architecture Render"
+  height: 240
+  image: "/assets/img/work/re1.png"
+- title: "3D House Render"
+  category: "Architecture Render"
   height: 200
-  image: ""
-- title: "Cartoon Character"
-  category: "Stylized · rigged"
+  image: "/assets/img/work/re2.png"
+- title: "Flipbook as Defense"
+  category: "VFX"
   height: 300
-  image: ""
-- title: "Photoreal Bust"
-  category: "Skin shading study"
+  image: "/assets/img/work/VF1.gif"
+- title: "Fun Milk"
+  category: "Design Renders"
   height: 380
-  image: ""
-- title: "Environment Prop Set"
-  category: "Hard surface"
+  image: "/assets/img/work/marketing.png"
+- title: "Animations for combat"
+  category: "Combat animations"
   height: 220
-  image: ""
-- title: "Companion Creature"
-  category: "Zbrush · retopo"
-  height: 260
-  image: ""
+  image: "/assets/img/work/hrn1.png"
+- title: "Animations for combat"
+  category: "Combat animations"
+  height: 380
+  image: "/assets/img/work/tl1.gif"
 - title: "Hero Character"
   category: "Production ready"
   height: 340
-  image: ""
+  image: "/assets/img/work/s1"
 - title: "Texture Study"
   category: "Lookdev"
   height: 200
-  image: ""
+  image: "/assets/img/work/s2"
 - title: "Stylized Animal"
   category: "Modeling & texture"
   height: 280
-  image: ""
+  image: "/assets/img/work/s3"
 - title: "Armor Set"
   category: "Hard surface"
   height: 240
-  image: ""
+  image: "/assets/img/work/s4"
 - title: "Concept Sculpt"
   category: "Blockout pass"
   height: 200
-  image: ""
+  image: "/assets/img/work/s6"
