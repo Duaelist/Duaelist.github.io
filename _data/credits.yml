@@ -2,12 +2,12 @@
 # `image` is optional — leave it blank to show a placeholder block,
 # or point it at a file under /assets/img/credits/.
 - title: "Snake Space"
-  role: "PM, Enviroment Artist, Bug tracking"
+  role: "PM Enviroment Art Bug tracking and some VFX"
   year: "2026"
   image: "/assets/img/work/hd1.gif"
-- title: "Animated Series Title"
-  role: "Modeling & Texture"
-  year: "2023"
+- title: "Super Hot Alike"
+  role: "Prototype entirely owned"
+  year: "2024"
   image: ""
 - title: "Streaming Feature Title"
   role: "Lookdev Artist"
