@@ -6,11 +6,11 @@
 - title: "Flipbook VFX"
   category: "VFX"
   height: 340
-  image: "sheetf.tif"
+  image: "/assets/img/work/sheetf.jpg"
 - title: "3D Arch Render"
   category: "Zbrush · high poly"
   height: 240
-  image: "re1.jpg"
+  image: "/assets/img/work/re1.jpg"
   accent: true
 - title: "Hard-surface Prop"
   category: "Game-ready asset"
