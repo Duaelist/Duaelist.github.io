@@ -35,20 +35,20 @@
 - title: "Hero Character"
   category: "Production ready"
   height: 340
-  image: "/assets/img/work/s1"
+  image: "/assets/img/work/s1.png"
 - title: "Texture Study"
   category: "Lookdev"
   height: 200
-  image: "/assets/img/work/s2"
+  image: "/assets/img/work/s2.png"
 - title: "Stylized Animal"
   category: "Modeling & texture"
   height: 280
-  image: "/assets/img/work/s3"
+  image: "/assets/img/work/s3.png"
 - title: "Armor Set"
   category: "Hard surface"
   height: 240
-  image: "/assets/img/work/s4"
+  image: "/assets/img/work/s4.png"
 - title: "Concept Sculpt"
   category: "Blockout pass"
   height: 200
-  image: "/assets/img/work/s6"
+  image: "/assets/img/work/s6.png"
