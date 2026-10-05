@@ -1,0 +1,28 @@
+<section class="featured" id="featured">
+  <div class="section__head">
+    <p class="eyebrow">Featured projects</p>
+    <h2>Selected work</h2>
+    <p>The projects worth pointing to first.</p>
+  </div>
+
+  <div class="featured__grid">
+    {% for p in site.data.projects %}
+    {% if p.featured %}
+    <article class="project-card project-card--featured">
+      <div class="project-card__media"{% if p.image != "" %} style="background-image:url('{{ p.image | relative_url }}');"{% endif %}>
+        {% if p.image == "" %}<span class="project-card__placeholder">{{ p.tag }}</span>{% endif %}
+      </div>
+      <div class="project-card__body">
+        <p class="meta">{{ p.category }}</p>
+        <h3>{{ p.title }}</h3>
+        <p class="project-card__desc">{{ p.description }}</p>
+        <ul class="chips">
+          {% for s in p.stack %}<li>{{ s }}</li>{% endfor %}
+        </ul>
+        {% if p.link_url != "" %}<a class="project-card__link" href="{{ p.link_url }}" target="_blank" rel="noopener">{{ p.link_label }} →</a>{% endif %}
+      </div>
+    </article>
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>

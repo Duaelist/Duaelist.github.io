@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
   {% include nav.html %}
 
   <main>
@@ -20,5 +22,8 @@
   </main>
 
   {% include footer.html %}
+
+  <script src="{{ '/assets/js/filter.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/background.js' | relative_url }}"></script>
 </body>
 </html>

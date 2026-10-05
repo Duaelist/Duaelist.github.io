@@ -1,0 +1,12 @@
+<section class="cta" id="contact">
+  <h2>Let's build something.</h2>
+  <p>Open to collaborating on new projects — reach out however's easiest.</p>
+  <div class="cta__actions">
+    <a class="btn btn--primary" href="mailto:{{ site.email }}">{{ site.email }}</a>
+  </div>
+  <ul class="cta__social">
+    {% if site.social.linkedin %}<li><a href="{{ site.social.linkedin }}" target="_blank" rel="noopener">LinkedIn</a></li>{% endif %}
+    {% if site.social.artstation %}<li><a href="{{ site.social.artstation }}" target="_blank" rel="noopener">ArtStation</a></li>{% endif %}
+    {% if site.social.instagram %}<li><a href="{{ site.social.instagram }}" target="_blank" rel="noopener">Instagram</a></li>{% endif %}
+  </ul>
+</section>

@@ -1,20 +1,20 @@
 /* ---------------------------------------------------------------
    Tokens
    ---------------------------------------------------------------
-   Palette is named after the "blockout" pass in 3D production —
-   the rough grey blocking stage before detail is added — with a
-   single oxide-red accent standing in for a selected/highlighted
-   piece of geometry.
+   Palette keeps the "blockout" concept from the 3D production
+   pass — rough blocking before detail — now in a dark navy/blue
+   range, with a single blue accent standing in for a selected/
+   highlighted piece of geometry.
 ------------------------------------------------------------------ */
 :root {
-  --bg: #121012;
-  --bg-panel: #1B181A;
-  --bg-panel-alt: #232022;
-  --fg: #EDEAE6;
-  --fg-muted: #9A938E;
-  --line: #35302F;
-  --accent: #C1272D;
-  --accent-dim: #7A2124;
+  --bg: #0A0F1F;
+  --bg-panel: #121A30;
+  --bg-panel-alt: #1A2440;
+  --fg: #E7ECF7;
+  --fg-muted: #8B96B8;
+  --line: #263055;
+  --accent: #2F7DFF;
+  --accent-dim: #1E57C7;
 
   --font-display: "Big Shoulders Display", sans-serif;
   --font-body: "IBM Plex Sans", sans-serif;
@@ -38,6 +38,13 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
 }
 
 h1, h2, h3 {
@@ -229,7 +236,7 @@ section {
 }
 
 .block--a { left: 10%; top: 55%; width: 28%; height: 32%; }
-.block--b { left: 42%; top: 38%; width: 22%; height: 48%; background: #2A2626; }
+.block--b { left: 42%; top: 38%; width: 22%; height: 48%; background: #0F1830; }
 .block--c { left: 66%; top: 60%; width: 24%; height: 26%; }
 
 .block--selected {
@@ -421,4 +428,260 @@ section {
   .nav { padding: 1.25rem 1.25rem; }
   .masonry { columns: 1; }
   .footer { padding: 2.5rem 1.25rem 3rem; }
+}
+
+/* ---------------------------------------------------------------
+   Eyebrow label (small tag above a section heading)
+------------------------------------------------------------------ */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+/* ---------------------------------------------------------------
+   Nav section menu
+------------------------------------------------------------------ */
+.nav__menu {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--fg-muted);
+  flex-wrap: wrap;
+}
+.nav__menu a:hover { color: var(--fg); }
+
+/* ---------------------------------------------------------------
+   Project cards (shared by Featured + All Projects)
+------------------------------------------------------------------ */
+.project-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.project-card__media {
+  aspect-ratio: 16 / 10;
+  background: var(--bg-panel-alt);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-card__placeholder {
+  font-family: var(--font-mono);
+  color: var(--fg-muted);
+  font-size: 0.85rem;
+}
+
+.project-card__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-card__body .meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+}
+
+.project-card__body h3 {
+  font-size: 1.3rem;
+}
+
+.project-card__desc {
+  color: var(--fg-muted);
+  font-size: 0.92rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.chips li {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-muted);
+  border: 1px solid var(--line);
+  padding: 0.2rem 0.55rem;
+}
+
+.project-card__link {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+  align-self: flex-start;
+}
+.project-card__link:hover { color: var(--fg); }
+
+/* --- Featured grid: fewer, larger cards --- */
+.featured__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+}
+
+/* --- All projects: filter bar + responsive grid --- */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: transparent;
+  color: var(--fg-muted);
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.filter-btn:hover { color: var(--fg); }
+
+.filter-btn.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+.project-card.is-hidden { display: none; }
+
+/* ---------------------------------------------------------------
+   Experience timeline
+------------------------------------------------------------------ */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--line);
+}
+
+.timeline__row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1.5rem;
+  padding: 1.75rem 0 1.75rem 1.75rem;
+  position: relative;
+}
+
+.timeline__row::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 2.1rem;
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+}
+
+.timeline__date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+}
+
+.timeline__content h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.timeline__content .meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--fg-muted);
+  margin-top: 0.2rem;
+}
+
+.timeline__desc {
+  margin-top: 0.5rem;
+  color: var(--fg-muted);
+  font-size: 0.92rem;
+  max-width: 60ch;
+}
+
+/* ---------------------------------------------------------------
+   Skills
+------------------------------------------------------------------ */
+.skills__groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.skills__group h3 {
+  font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* ---------------------------------------------------------------
+   Closing CTA
+------------------------------------------------------------------ */
+.cta {
+  text-align: center;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.cta h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.cta p {
+  margin-top: 1rem;
+  color: var(--fg-muted);
+}
+
+.cta__actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.cta__social {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+.cta__social a:hover { color: var(--fg); }
+
+/* ---------------------------------------------------------------
+   Responsive additions for the new sections
+------------------------------------------------------------------ */
+@media (max-width: 900px) {
+  .nav__menu { display: none; }
+  .featured__grid { grid-template-columns: 1fr; }
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline__row { grid-template-columns: 1fr; gap: 0.4rem; }
+}
+
+@media (max-width: 560px) {
+  .project-grid { grid-template-columns: 1fr; }
 }

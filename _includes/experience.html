@@ -1,0 +1,24 @@
+<section class="experience" id="experience">
+  <div class="section__head">
+    <p class="eyebrow">Experience</p>
+    <h2>Where I've worked &amp; studied</h2>
+  </div>
+
+  <ol class="timeline">
+    {% for e in site.data.experience %}
+    <li class="timeline__row">
+      <p class="timeline__date">{{ e.start }} — {{ e.end }}</p>
+      <div class="timeline__content">
+        <h3>{{ e.role }}</h3>
+        <p class="meta">{{ e.org }}</p>
+        <p class="timeline__desc">{{ e.description }}</p>
+        {% if e.tags.size > 0 %}
+        <ul class="chips">
+          {% for t in e.tags %}<li>{{ t }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>

@@ -1,0 +1,41 @@
+# Shared by the "Featured projects" cards and the filterable
+# "All projects" grid below them.
+# `featured: true` → also shows up as a big card in the featured row.
+# `stack` drives the filter buttons — reuse the same word across
+# entries (e.g. "Unity", "Unreal") so they group under one filter.
+- title: "Project Title One"
+  tag: "P1"
+  category: "Personal Project"
+  description: "One or two sentences on what this is and your role in it."
+  stack: ["Unity", "C#"]
+  image: ""
+  link_label: "Play on itch.io"
+  link_url: ""
+  featured: true
+- title: "Project Title Two"
+  tag: "P2"
+  category: "Team Project"
+  description: "One or two sentences on what this is and your role in it."
+  stack: ["Unreal", "Blueprints"]
+  image: ""
+  link_label: "View on Steam"
+  link_url: ""
+  featured: true
+- title: "Game Jam Entry"
+  tag: "GJ"
+  category: "48h Jam"
+  description: "Short one-line description of the jam entry."
+  stack: ["Unity", "C#"]
+  image: ""
+  link_label: "View project"
+  link_url: ""
+  featured: false
+- title: "Tool / Prototype"
+  tag: "TL"
+  category: "Internal Tool"
+  description: "Short one-line description of what the tool does."
+  stack: ["Python"]
+  image: ""
+  link_label: "View project"
+  link_url: ""
+  featured: false

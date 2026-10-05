@@ -1,0 +1,19 @@
+# One entry per row in the "Experience" timeline, most recent first.
+- start: "2024"
+  end: "Present"
+  role: "Your Role"
+  org: "Company / Studio"
+  description: "One or two sentences on what you did there."
+  tags: ["Unity", "C#"]
+- start: "2022"
+  end: "2024"
+  role: "Your Role"
+  org: "Company / Studio"
+  description: "One or two sentences on what you did there."
+  tags: ["Unreal", "Blueprints"]
+- start: "2019"
+  end: "2023"
+  role: "Degree / Program"
+  org: "School Name"
+  description: "Degree or program, with specialization if relevant."
+  tags: []

@@ -1,0 +1,7 @@
+# One entry per skills group. `items` renders as a row of chips.
+- category: "Engines & Graphics"
+  items: ["Unity", "Unreal Engine 5", "ShaderGraph", "Blender"]
+- category: "Languages"
+  items: ["C#", "C++", "Python"]
+- category: "Tools & Workflow"
+  items: ["Git", "VS Code", "Trello"]
