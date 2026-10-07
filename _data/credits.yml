@@ -6,7 +6,14 @@
 # Overlay fields (all optional):
 #   tools      - list of short tags shown as chips
 #   description - longer text, Markdown allowed (blank line = new paragraph)
-#   gallery    - list of extra image paths shown under the text
+#   gallery    - extra images shown under the text, as many as you want.
+#                Plain path:   - "/assets/img/work/shot1.png"
+#                With caption: - src: "/assets/img/work/shot2.png"
+#                                caption: "Greybox pass"
+#                Full width:   - src: "/assets/img/work/shot3.png"
+#                                wide: true
+#   Inside `description` you can also use Markdown: ### headings,
+#   **bold**, - lists, [links](url) and images ![alt](/assets/img/work/x.png)
 #   link_url / link_label - button at the bottom of the overlay
 - title: "Snake Space"
   role: "PM Enviroment Art Bug tracking and some VFX"
@@ -16,8 +23,26 @@
   description: |
     Placeholder: write 2-3 sentences about what Snake Space is and what the team set out to do.
 
+    ### My role
+
     Placeholder: explain your part. For example how you ran the project, what environment art you made, how you tracked bugs and which VFX you built.
-  gallery: []
+
+    ### Process
+
+    - Placeholder step one
+    - Placeholder step two
+
+    ### Result
+
+    Placeholder: what shipped and what you learned.
+  gallery:
+    - src: "/assets/img/work/hd1.gif"
+      caption: "Placeholder caption"
+      wide: true
+    - src: "/assets/img/work/PM1.png"
+      caption: "Placeholder caption"
+    - src: "/assets/img/work/PM1.png"
+      caption: "Placeholder caption"
   link_url: ""
   link_label: ""
 - title: "Super Hot Alike"

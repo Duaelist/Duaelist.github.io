@@ -28,7 +28,13 @@
           {% endif %}
           {% if c.gallery and c.gallery.size > 0 %}
           <div class="credit-modal__gallery">
-            {% for g in c.gallery %}<img src="{{ g | relative_url }}" alt="{{ c.title }} detail {{ forloop.index }}" loading="lazy">{% endfor %}
+            {% for g in c.gallery %}
+            {% assign src = g.src | default: g %}
+            <figure{% if g.wide %} class="is-wide"{% endif %}>
+              <img src="{{ src | relative_url }}" alt="{{ g.caption | default: c.title }}" loading="lazy">
+              {% if g.caption %}<figcaption>{{ g.caption }}</figcaption>{% endif %}
+            </figure>
+            {% endfor %}
           </div>
           {% endif %}
           {% if c.link_url != "" and c.link_url %}
