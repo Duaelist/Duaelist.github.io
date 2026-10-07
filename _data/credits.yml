@@ -3,6 +3,7 @@
 #
 # Card fields:
 #   title, role, year, image   (image optional; blank = placeholder block)
+#   banner     - optional wide image for the top of the overlay (defaults to image)
 # Overlay fields (all optional):
 #   tools      - list of short tags shown as chips
 #   description - longer text, Markdown allowed (blank line = new paragraph)
@@ -16,35 +17,64 @@
 #   **bold**, - lists, [links](url) and images ![alt](/assets/img/work/x.png)
 #   link_url / link_label - button at the bottom of the overlay
 - title: "Snake Space"
-  role: "PM Enviroment Art Bug tracking and some VFX"
+  role: "PM, Environment Art, Textures, Bug Tracking and some VFX"
   year: "2026"
   image: "/assets/img/work/hd1.gif"
-  tools: ["Unity", "Blender", "Trello"]
+  banner: "/assets/img/work/snake-space-banner.jpg"   # wide image at the top of the overlay
+  # Tool chips: add the ones you actually used, e.g. ["Unity", "Blender"]
+  tools: []
   description: |
-    Placeholder: write 2-3 sentences about what Snake Space is and what the team set out to do.
+    Snake Space is a first-person high-risk precision shooter where you play as Dorian, a scientist partially infected by an extra-dimensional snake parasite, still fighting to maintain control. Outnumbered, one advantage is your phase shifting ability, that allows you to scout or move to a better vantage point when things get too threatening.
+
+    **Status:** Released · **Platform:** Windows · Free to download on itch.io
 
     ### My role
 
-    Placeholder: explain your part. For example how you ran the project, what environment art you made, how you tracked bugs and which VFX you built.
+    I was the project manager and also worked on textures and environment art.
 
-    ### Process
+    *Placeholder: add your own words here. How you organized the team, how bug tracking worked, which environments and VFX you made.*
 
-    - Placeholder step one
-    - Placeholder step two
+    ### Challenges and what I learned
 
-    ### Result
+    *Placeholder: your personal thoughts. What was hard, what you would do differently, what you are proud of.*
 
-    Placeholder: what shipped and what you learned.
+    ### Team
+
+    - **Rodrigo Alberto Galvan Alejandre**: PM, textures, environment artist
+    - **Mel Mirahmadi**: Artist, character animations, VFX, UI designer
+    - **Martin Navarro**: Level designer, sound designer, QA
+    - **Carson Wang**: Programmer, combat designer
+
+    ### External collaborators
+
+    - Maat Ramirez Morales: Concept artist
+    - Izak Arida: Music collaborator
+    - Jon Hunwick: Concept artist
+    - Natalia Casados: Prop artist
+    - Natalie Wong: Prop artist
+    - Abigail Gravill: Concept artist
+    - Juan Destefano: Sound collaborator
+    - Wesley Chang: Sound collaborator
+
+    No generative AI was used.
   gallery:
     - src: "/assets/img/work/hd1.gif"
-      caption: "Placeholder caption"
+      caption: "Gameplay"
       wide: true
-    - src: "/assets/img/work/PM1.png"
-      caption: "Placeholder caption"
-    - src: "/assets/img/work/PM1.png"
-      caption: "Placeholder caption"
-  link_url: ""
-  link_label: ""
+    - src: "/assets/img/work/snake-space-1.jpg"
+      caption: "Reactor corridor"
+    - src: "/assets/img/work/snake-space-2.jpg"
+      caption: "Corridor in the dark"
+    - src: "/assets/img/work/snake-space-3.jpg"
+      caption: "Purple-tinted view with an enemy silhouette"
+    - src: "/assets/img/work/snake-space-4.jpg"
+      caption: "Combat in the lab"
+    - src: "/assets/img/work/snake-space-5.jpg"
+      caption: "Biohazard lab"
+    - src: "/assets/img/work/snake-space-6.jpg"
+      caption: "Reactor core in the dark"
+  link_url: "https://vfs-gdpg.itch.io/snake-space"
+  link_label: "Play on itch.io"
 - title: "Super Hot Alike"
   role: "Prototype entirely owned"
   year: "2024"

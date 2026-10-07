@@ -14,8 +14,9 @@
       <p class="meta">{{ c.role }} · {{ c.year }}</p>
 
       <template id="credit-detail-{{ forloop.index0 }}">
-        {% if c.image != "" and c.image %}
-        <img class="credit-modal__media" src="{{ c.image | relative_url }}" alt="{{ c.title }}">
+        {% assign hero = c.banner | default: c.image %}
+        {% if hero != "" and hero %}
+        <img class="credit-modal__media" src="{{ hero | relative_url }}" alt="{{ c.title }}">
         {% endif %}
         <div class="credit-modal__body">
           <p class="meta">{{ c.role }} · {{ c.year }}</p>
