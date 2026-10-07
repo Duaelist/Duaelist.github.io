@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<article class="project-page">
+  <a class="project-page__back" href="{{ '/' | relative_url }}#projects">← Back to projects</a>
+
+  <header class="project-page__head">
+    <p class="meta">{{ page.category }}</p>
+    <h1>{{ page.title }}</h1>
+    <ul class="chips">
+      {% for s in page.stack %}<li>{{ s }}</li>{% endfor %}
+    </ul>
+    {% if page.link_url %}
+    <a class="btn btn--primary" href="{{ page.link_url }}" target="_blank" rel="noopener">{{ page.link_label | default: "View project" }} ↗</a>
+    {% endif %}
+  </header>
+
+  <div class="project-page__media"{% if page.image %} style="background-image:url('{{ page.image | relative_url }}');"{% endif %}>
+    {% unless page.image %}<span class="project-card__placeholder">{{ page.tag }}</span>{% endunless %}
+  </div>
+
+  <div class="project-page__body">
+    {{ content }}
+  </div>
+
+  {% if page.link_url %}
+  <div class="project-page__footer-cta">
+    <a class="btn btn--primary" href="{{ page.link_url }}" target="_blank" rel="noopener">{{ page.link_label | default: "View project" }} ↗</a>
+  </div>
+  {% endif %}
+</article>
