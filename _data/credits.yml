@@ -1,23 +1,66 @@
-# One entry per poster card in the "Selected credits" strip.
-# `image` is optional — leave it blank to show a placeholder block,
-# or point it at a file under /assets/img/credits/.
+# One entry per poster card in the "Most recent works" strip.
+# Clicking a card opens an overlay with the detail fields below.
+#
+# Card fields:
+#   title, role, year, image   (image optional; blank = placeholder block)
+# Overlay fields (all optional):
+#   tools      - list of short tags shown as chips
+#   description - longer text, Markdown allowed (blank line = new paragraph)
+#   gallery    - list of extra image paths shown under the text
+#   link_url / link_label - button at the bottom of the overlay
 - title: "Snake Space"
   role: "PM Enviroment Art Bug tracking and some VFX"
   year: "2026"
   image: "/assets/img/work/hd1.gif"
+  tools: ["Unity", "Blender", "Trello"]
+  description: |
+    Placeholder: write 2-3 sentences about what Snake Space is and what the team set out to do.
+
+    Placeholder: explain your part. For example how you ran the project, what environment art you made, how you tracked bugs and which VFX you built.
+  gallery: []
+  link_url: ""
+  link_label: ""
 - title: "Super Hot Alike"
   role: "Prototype entirely owned"
   year: "2024"
   image: ""
+  tools: ["Unity", "C#"]
+  description: |
+    Placeholder: describe the prototype, the core mechanic and what you wanted to test.
+
+    Placeholder: what you built end to end and what you learned.
+  gallery: []
+  link_url: ""
+  link_label: ""
 - title: "Managing trought Sheets"
   role: "Project Management"
   year: "2026"
   image: "/assets/img/work/PM1.png"
+  tools: ["Google Sheets"]
+  description: |
+    Placeholder: describe the problem the sheets solved and who used them.
+
+    Placeholder: how the system works and what changed for the team after adopting it.
+  gallery: []
+  link_url: ""
+  link_label: ""
 - title: "Management and Design for TV Azteca"
   role: "Manager/Designer"
   year: "2022"
   image: ""
+  tools: []
+  description: |
+    Placeholder: describe the project, the client and your responsibilities.
+  gallery: []
+  link_url: ""
+  link_label: ""
 - title: "Short Film Title"
   role: "Creature Sculpt"
   year: "2021"
   image: ""
+  tools: ["ZBrush"]
+  description: |
+    Placeholder: describe the film and the creature you sculpted.
+  gallery: []
+  link_url: ""
+  link_label: ""
