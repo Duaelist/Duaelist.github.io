@@ -162,11 +162,51 @@
 - title: "Management and Design for TV Azteca"
   role: "Manager/Designer"
   year: "2022"
-  image: ""
-  tools: []
+  image: "/assets/img/work/tv-azteca-1.jpg"
+  banner: "/assets/img/work/tv-azteca-banner.avif"
+  tools: ["Ableton", "Resolume Arena", "After Effects", "Google Sheets"]
   description: |
-    Placeholder: describe the project, the client and your responsibilities.
-  gallery: []
+    For TV Azteca I managed and designed visuals for screens more than 20 meters wide. No single program could do that job, so we built a hybrid system that tied together sound, live visuals and planning: Ableton for the music, After Effects to create the designs, Resolume Arena to play them on the screens, and Google Sheets to keep the whole team organized.
+
+    *Placeholder: one or two sentences on what the show or event was, where it took place and what the screens were showing.*
+
+    **Client:** TV Azteca · **Screen size:** 20+ meters wide
+
+    ### My role
+
+    I was both the manager and a designer. On a screen this size the design and the schedule can't be separated: every effect, resolution and render time has a real cost. Designing alongside the team kept my planning honest, and managing the plan meant I always knew what the designs needed next.
+
+    *Placeholder: your exact responsibilities (who you coordinated, what you delivered to the client) and how you split your time between managing and designing.*
+
+    ### The hybrid system
+
+    Each program had one clear job:
+
+    - **After Effects:** where the designs and animations were created.
+    - **Resolume Arena:** where the visuals were played and controlled. Clips were organized in columns, and effects like Contour Glow turned a live camera feed into a glowing outline.
+    - **Ableton:** the sound. MIDI notes drive the music, and an LFO moves the drive of a saturator in time with the tempo, so the sound pulses with the beat.
+    - **Google Sheets:** the plan behind it all, with tasks, deadlines and assets in one place.
+
+    *Placeholder: how Ableton and Resolume were connected (MIDI, audio, something else?) and how files moved from After Effects into Resolume.*
+
+    ### How I kept the project organized
+
+    *Placeholder: how you used the sheets, how deadlines and deliveries were tracked, and how designers and screen operators stayed aligned.*
+
+    ### Challenges and what I learned
+
+    *Placeholder: working at 20+ meters (resolution, legibility, testing on the real screen), tight timelines, and what you would do differently.*
+
+    ### Team
+
+    - **Rodrigo Alberto Galvan Alejandre**: Manager, designer
+
+    *Placeholder: add teammates and their roles.*
+  gallery:
+    - src: "/assets/img/work/tv-azteca-1.jpg"
+      caption: "Resolume Arena: Contour Glow turning a live camera feed into a glowing outline"
+    - src: "/assets/img/work/tv-azteca-2.avif"
+      caption: "Ableton: MIDI notes in the piano roll"
   link_url: ""
   link_label: ""
 - title: "Short Film Title"
