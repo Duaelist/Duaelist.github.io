@@ -30,25 +30,25 @@
 
     ### My role
 
-    I was the project manager, and I also made textures and environment art. Doing both was useful on a small team: being close to the art meant I knew how long things really took, so my planning stayed honest.
+    I was the project manager, and I also made textures and environment art. Doing both was useful on a small team: being close to the art meant I knew how long things really took, so my planning stayed honest and approachable.
 
     ### How I kept the project organized
 
-    Our biggest challenge was time. We had under three months to make a game that felt good to play, so every week counted. My answer was order, and a lot of sheets. Tasks, deadlines and bugs lived in shared sheets, each with one clear job, so nobody had to ask what to do next or where to look.
+    Our challenge was Triple, maintaining the entire team happy and motivated, giving them something they like to do since it was some of the team members first project, adding to that, the fact that we were still learning made it so the timeline had to be adjusted and account for learning time, finally these two combined created the additional challenge of time, since three months become pretty tight actually. We had under three months to make a game that felt good to play, so every week counted. My answer was order, and a lot of sheets. Tasks, deadlines and bugs lived in shared sheets, each with one clear job, so nobody had to ask what to do next or where to look.
 
-    - **One place to look:** everyone worked from the same sheets, so the plan was never in somebody's head.
-    - **Bugs with a trail:** bug tracking was part of my job, and a written list made it easy to see what was open, what was fixed and what still blocked us.
+    - **One place to look:** everyone worked from the same sheets, so the plan was never in somebody's head, even so, many adjustments could be made on the stand ups.
+    - **Bugs with a trail:** bug tracking was part of my job, and a written list made it easy to see what was open, what was fixed and what still blocked us many of them were trackend on the platform JIRA and hack'n plan.
     - **Problems visible early:** when a task slipped, it showed in the sheet that week, while there was still time to move things around.
 
-    *Placeholder: name the sheets you actually used (for example schedule, bug list, asset list) and what a typical week looked like.*
+    Our tools include Google sheets, JIRA and hack'n plan. each platform has its strenghts
 
     I wrote more about this way of working in my **Managing through Sheets** project.
 
     ### Challenges and what I learned
 
-    The timeline was only half of the challenge. The other half was the people side: conflicts inside the team and building a team that trusted each other. Putting priorities in writing helped here too, because a disagreement about a plan is easier to solve than a disagreement about a person.
+    The timeline was only half of the challenge. The other half was the people side: conflicts inside the team and building a team that trusted each other. Putting priorities in writing helped a lot. It also learned to be flexible and trust my team, sometimes we didnt get the desired result but we got something satisfactory or even better and that motivated the team into working more
 
-    *Placeholder: your personal thoughts. What you would do differently, and what you are proud of.*
+   
 
     ### Team
 
@@ -88,17 +88,65 @@
   link_url: "https://vfs-gdpg.itch.io/snake-space"
   link_label: "Play on itch.io"
 - title: "Super Hot Alike"
-  role: "Prototype entirely owned"
+  role: "Game Design, Level Design and Programming"
   year: "2024"
-  image: ""
-  tools: ["Unity", "C#"]
+  image: "/assets/img/work/super-hot-alike-1.jpg"
+  banner: "/assets/img/work/super-hot-alike-2.jpg"
+  tools: ["Unreal Engine"]
   description: |
-    Placeholder: describe the prototype, the core mechanic and what you wanted to test.
+    Super Hot Alike is a first-person prototype made in the spirit of Superhot, the game where time only moves when you move. It was built by a team of two, and my focus was the level and game design: a warehouse of shelves, pallets and barrels with enemies placed around it.
 
-    Placeholder: what you built end to end and what you learned.
-  gallery: []
-  link_url: ""
-  link_label: ""
+    *Placeholder: one or two sentences in your own words. What you wanted to explore and how close it stays to the original.*
+
+    **Status:** Prototype · **Team size:** 2 · **Engine:** Unreal Engine (Blueprints)
+
+    ### My role
+
+    I owned everything except the assets: game design, level design, programming and the rest of the work that keeps a prototype moving. With only two people there was nobody else to hand a problem to, so I followed each decision from the first idea to the playable build.
+
+    ### Splitting the work
+
+    Manuel Armando Cabrera Garcia was responsible for the assets, and I took care of everything else. A clear split meant we could work in parallel without waiting on each other.
+
+    The project started from a Blueprint skeleton and a set of props found online by GamedevEnabled, so we could spend our time on the design instead of rebuilding the basics.
+
+    *Placeholder: say what you and Manuel built or changed on top of that base, and how the two of you kept in sync.*
+
+    ### Level and game design
+
+    In a game where time only moves when you move, every encounter becomes a small puzzle about position and timing. That makes level design a big part of the game, not a backdrop for it. It was also the biggest part of my work here, followed by game design.
+
+    The images below show the process: a white-box blockout of the warehouse, a top-down view of the level layout, and enemies placed inside the space.
+
+    *Placeholder: describe how the layout guides the player, how you decided where each enemy goes, and what you changed after playtesting.*
+
+    ### Programming
+
+    *Placeholder: the systems you worked on. For example how time slows and speeds up, how enemies and projectiles behave, and how the player controls feel.*
+
+    ### Challenges and what I learned
+
+    *Placeholder: your personal thoughts. What was hard, what you would do differently, what you are proud of.*
+
+    ### Team
+
+    - **Rodrigo Alberto Galvan Alejandre**: Game design, level design, programming
+    - **Manuel Armando Cabrera Garcia**: Assets
+
+    Blueprint skeleton and props found online by GamedevEnabled.
+  gallery:
+    - src: "/assets/img/work/super-hot-alike-1.jpg"
+      caption: "White-box blockout of the warehouse"
+      wide: true
+    - src: "/assets/img/work/super-hot-alike-3.jpg"
+      caption: "Top-down view of the level layout"
+    - src: "/assets/img/work/super-hot-alike-4.jpg"
+      caption: "Another angle of the blockout"
+    - src: "/assets/img/work/super-hot-alike-5.jpg"
+      caption: "Enemy placement near the barrels"
+      wide: true
+  link_url: "https://www.behance.net/gallery/192687313/Level-and-Game-Design-for-Videogame-(Superhot)"
+  link_label: "View on Behance"
 - title: "Managing trought Sheets"
   role: "Project Management"
   year: "2026"
