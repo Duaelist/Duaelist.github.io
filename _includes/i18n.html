@@ -4,5 +4,7 @@
 {%- endcomment -%}
 {%- assign L = page.lang | default: "en" -%}
 {%- assign t = site.data.i18n[L] -%}
+{%- comment -%} Set to true to show the "Selected work" and "All projects" sections again. {%- endcomment -%}
+{%- assign show_projects = false -%}
 {%- assign home = "/" -%}
 {%- if L == "es" -%}{%- assign home = "/es/" -%}{%- endif -%}

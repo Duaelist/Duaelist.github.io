@@ -12,17 +12,26 @@
   tags: []
 
 - start: "11/2025"
-  end: "Present"
+  end: "04/2026"
   role: "PM | Environment Artist (Student Project)"
   role_es: "PM | Artista de entornos (Proyecto estudiantil)"
-  org: "Vancouver Film School · Game Design"
-  org_es: "Vancouver Film School · Diseño de videojuegos"
+  org: "Vancouver Film School"
+  org_es: "Vancouver Film School"
+  tags: []
+
+# TODO: replace the placeholder dates below with the real ones.
+- start: "04/2025"
+  end: "04/2026"
+  role: "Game Design Diploma Course"
+  role_es: "Diplomado en Diseño de Videojuegos"
+  org: "Vancouver Film School"
+  org_es: "Vancouver Film School"
   tags: []
 
 - start: "06/2022"
   end: "01/2024"
-  role: "Multimedia Designer"
-  role_es: "Diseñador multimedia"
+  role: "PM | Multimedia Designer"
+  role_es: "PM | Diseñador multimedia"
   org: "TV Azteca · Mexico City"
   org_es: "TV Azteca · Ciudad de México"
   tags: []

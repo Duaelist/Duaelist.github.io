@@ -4,8 +4,10 @@
 
   <nav class="nav__menu" aria-label="{{ t.nav.menu_label }}">
     <a href="#about">{{ t.nav.about }}</a>
-    <a href="#featured">{{ t.nav.featured }}</a>
-    <a href="#projects">{{ t.nav.projects }}</a>
+    {% if show_projects %}
+      <a href="#featured">{{ t.nav.featured }}</a>
+      <a href="#projects">{{ t.nav.projects }}</a>
+    {% endif %}
     <a href="#experience">{{ t.nav.experience }}</a>
     <a href="#skills">{{ t.nav.skills }}</a>
     <a href="#contact">{{ t.nav.contact }}</a>

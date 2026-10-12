@@ -1,4 +1,5 @@
 {% include i18n.html %}
+{% if show_projects %}
 {% assign stack_string = "" %}
 {% for p in site.data.projects %}
   {% for s in p.stack %}
@@ -40,3 +41,4 @@
     {% endfor %}
   </div>
 </section>
+{% endif %}
