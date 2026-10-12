@@ -206,64 +206,9 @@ section {
 }
 .btn--ghost:hover { border-color: var(--fg-muted); }
 
-/* --- hero viewport graphic --- */
+/* --- hero minigame column --- */
 .hero__viewport {
   animation: rise 0.7s ease-out 0.1s both;
-}
-
-.viewport {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  background: var(--bg-panel);
-  border: 1px solid var(--line);
-  overflow: hidden;
-}
-
-.viewport__grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 12.5% 16.6%;
-  opacity: 0.45;
-}
-
-.block {
-  position: absolute;
-  background: var(--bg-panel-alt);
-  border: 1px solid var(--line);
-}
-
-.block--a { left: 10%; top: 55%; width: 28%; height: 32%; }
-.block--b { left: 42%; top: 38%; width: 22%; height: 48%; background: #0F1830; }
-.block--c { left: 66%; top: 60%; width: 24%; height: 26%; }
-
-.block--selected {
-  left: 42%;
-  top: 38%;
-  width: 22%;
-  height: 48%;
-  background: transparent;
-  border: 1px solid var(--accent);
-}
-
-.tick {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border: 2px solid var(--accent);
-}
-.tick--tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-.tick--tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
-.tick--bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
-.tick--br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
-
-.viewport__caption {
-  margin-top: 0.75rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--fg-muted);
 }
 
 @keyframes rise {
@@ -868,83 +813,6 @@ body.modal-open { overflow: hidden; }
   .credit-modal { padding: 0.5rem; }
   .credit-modal__body { padding: 1.25rem 1rem 1.5rem; }
   .credit-modal__gallery { grid-template-columns: 1fr; }
-}
-
-/* ---------------------------------------------------------------
-   Hero viewport: passive animation
-   (blockout geometry breathing, a scan line sweeping the grid and a
-   pulsing selection box). Transform/opacity only, so it stays smooth.
------------------------------------------------------------------- */
-.viewport__grid {
-  animation: grid-breathe 6s ease-in-out infinite alternate;
-}
-
-.block--a,
-.block--c {
-  transform-origin: bottom center;
-}
-.block--a { animation: block-grow 5.5s ease-in-out infinite alternate; }
-.block--c { animation: block-grow 7s ease-in-out -2s infinite alternate; }
-
-.block--b,
-.block--selected {
-  animation: block-float 6.5s ease-in-out infinite alternate;
-}
-
-.block--selected {
-  animation:
-    block-float 6.5s ease-in-out infinite alternate,
-    select-pulse 2.6s ease-in-out infinite;
-}
-
-/* soft scan line passing over the viewport */
-.viewport::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 28%;
-  background: linear-gradient(to bottom, transparent, rgba(47, 125, 255, 0.16) 55%, transparent);
-  border-bottom: 1px solid rgba(47, 125, 255, 0.35);
-  transform: translateY(-100%);
-  animation: scan 7s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes grid-breathe {
-  from { opacity: 0.3; }
-  to   { opacity: 0.55; }
-}
-
-@keyframes block-grow {
-  from { transform: scaleY(1); }
-  to   { transform: scaleY(1.14); }
-}
-
-@keyframes block-float {
-  from { transform: translateY(-1.5%); }
-  to   { transform: translateY(1.5%); }
-}
-
-@keyframes select-pulse {
-  0%, 100% { box-shadow: 0 0 0 rgba(47, 125, 255, 0); }
-  50%      { box-shadow: 0 0 18px rgba(47, 125, 255, 0.45); }
-}
-
-@keyframes scan {
-  from { transform: translateY(-100%); }
-  to   { transform: translateY(380%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .viewport__grid,
-  .block--a,
-  .block--c,
-  .block--b,
-  .block--selected,
-  .viewport::after { animation: none; }
-  .viewport::after { display: none; }
 }
 
 /* ---------------------------------------------------------------

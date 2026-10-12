@@ -18,7 +18,6 @@ nav:
 hero:
   meta: "Modeling · Texturing · Lookdev · 3D pipelines"
   view_work: "View the work"
-  caption: "viewport_01 — blockout pass"
 credits:
   title: "Most recent works"
   intro: "Take a Peek at what I have been working on."
