@@ -1,28 +1,69 @@
-# One entry per row in the "Experience" timeline, most recent first.
-- start: "2024"
+# One entry per row in the "Experience" timeline, most recent first
+# (work and education share the same timeline, ordered by start date).
+# Spanish: add role_es / org_es / description_es. If a _es field is missing,
+# the English one is shown. Use end: "Present" for ongoing entries.
+# Dates are numeric (MM/YYYY or YYYY) so they read the same in EN and ES.
+
+- start: "08/2026"
   end: "Present"
-  role: "Your Role"
-  role_es: "Tu puesto"
-  org: "Company / Studio"
-  org_es: "Empresa / Estudio"
-  description: "One or two sentences on what you did there."
-  description_es: "Una o dos frases sobre lo que hiciste ahí."
-  tags: ["Unity", "C#"]
-- start: "2022"
-  end: "2024"
-  role: "Your Role"
-  role_es: "Tu puesto"
-  org: "Company / Studio"
-  org_es: "Empresa / Estudio"
-  description: "One or two sentences on what you did there."
-  description_es: "Una o dos frases sobre lo que hiciste ahí."
-  tags: ["Unreal", "Blueprints"]
-- start: "2019"
-  end: "2023"
-  role: "Degree / Program"
-  role_es: "Carrera / Programa"
-  org: "School Name"
-  org_es: "Nombre de la escuela"
-  description: "Degree or program, with specialization if relevant."
-  description_es: "Carrera o programa, con especialidad si aplica."
+  role: "Quest Designer"
+  org: "Akuma Studio · Mexico City"
+  org_es: "Akuma Studio · Ciudad de México"
+  tags: []
+
+- start: "11/2025"
+  end: "Present"
+  role: "PM | Environment Artist (Student Project)"
+  role_es: "PM | Artista de entornos (Proyecto estudiantil)"
+  org: "Vancouver Film School · Game Design"
+  org_es: "Vancouver Film School · Diseño de videojuegos"
+  tags: []
+
+- start: "06/2022"
+  end: "01/2024"
+  role: "Multimedia Designer"
+  role_es: "Diseñador multimedia"
+  org: "TV Azteca · Mexico City"
+  org_es: "TV Azteca · Ciudad de México"
+  tags: []
+
+- start: "02/2021"
+  end: "06/2022"
+  role: "QA / Game Designer"
+  role_es: "QA / Diseñador de juegos"
+  org: "Pixellity · Greater Mexico City"
+  org_es: "Pixellity · Área metropolitana de Ciudad de México"
+  tags: []
+
+- start: "03/2020"
+  end: "07/2020"
+  role: "Senior User Interface Designer"
+  role_es: "Diseñador Senior de Interfaz de Usuario"
+  org: "HelpyFinder · Mexico"
+  org_es: "HelpyFinder · México"
+  description: "UI design, banners, promotional videos and more."
+  description_es: "Diseño de interfaces, banners, videos publicitarios y más."
+  tags: []
+
+- start: "11/2019"
+  end: "05/2020"
+  role: "Community Manager"
+  org: "Soie Zen · Greater Mexico City"
+  org_es: "Soie Zen · Área metropolitana de Ciudad de México"
+  tags: []
+
+- start: "2016"
+  end: "2020"
+  role: "Design · Cinematography and Film & Video Production"
+  role_es: "Diseño · Cinematografía y producción de cine y video"
+  org: "Faculty of Art and Design – UNAM"
+  org_es: "Facultad de Arte y Diseño – UNAM"
+  tags: []
+
+- start: "01/2015"
+  end: "01/2016"
+  role: "3D Animation and Modeling · Design and Applied Arts"
+  role_es: "Animación y modelado 3D · Diseño y artes aplicadas"
+  org: "INAD"
+  org_es: "INAD"
   tags: []
