@@ -10,19 +10,338 @@
     </div>
   </div>
 
-  <div class="hero__viewport" aria-hidden="true">
-    <div class="viewport">
-      <div class="viewport__grid"></div>
-      <div class="block block--a"></div>
-      <div class="block block--b"></div>
-      <div class="block block--c"></div>
-      <div class="block block--selected">
-        <span class="tick tick--tl"></span>
-        <span class="tick tick--tr"></span>
-        <span class="tick tick--bl"></span>
-        <span class="tick tick--br"></span>
+  <div class="hero__viewport">
+    <div class="puzzle" id="untangle" data-lang="{{ page.lang | default: site.lang }}">
+      <canvas class="puzzle__canvas" role="img"></canvas>
+      <div class="puzzle__win" role="status" hidden>
+        <p class="puzzle__win-title"></p>
+        <p class="puzzle__win-moves"></p>
+        <button type="button" class="btn btn--primary puzzle__again"></button>
       </div>
     </div>
-    <p class="viewport__caption">{{ t.hero.caption }}</p>
+    <div class="puzzle__bar">
+      <span class="puzzle__status"></span>
+      <button type="button" class="btn btn--ghost puzzle__reset"></button>
+    </div>
+    <p class="viewport__caption puzzle__hint"></p>
   </div>
 </section>
+
+<style>
+  .puzzle { position: relative; width: 100%; max-width: 440px; margin-inline: auto; background: #182440; border-radius: 18px; overflow: hidden; }
+  .puzzle__canvas { display: block; width: 100%; aspect-ratio: 1 / 1; touch-action: none; user-select: none; -webkit-user-select: none; }
+  .puzzle__win { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: .5rem; text-align: center; color: #fff; background: rgba(24, 36, 64, .86); }
+  .puzzle__win[hidden] { display: none; }
+  .puzzle__win-title { margin: 0; font-size: 1.6rem; font-weight: 700; color: #FAC74F; }
+  .puzzle__win-moves { margin: 0 0 .6rem; opacity: .85; }
+  .puzzle__bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; max-width: 440px; margin: .75rem auto 0; font-size: .85rem; }
+  .puzzle__status { opacity: .8; }
+  .puzzle__reset { padding: .4rem .9rem; font-size: .85rem; }
+  .puzzle__hint { max-width: 440px; margin-inline: auto; text-align: center; }
+</style>
+
+{% raw %}
+<script>
+(function () {
+  'use strict';
+  var root = document.getElementById('untangle');
+  if (!root) return;
+
+  var canvas = root.querySelector('.puzzle__canvas');
+  var winBox = root.querySelector('.puzzle__win');
+  var winTitle = root.querySelector('.puzzle__win-title');
+  var winMoves = root.querySelector('.puzzle__win-moves');
+  var againBtn = root.querySelector('.puzzle__again');
+  var scope = root.parentNode;
+  var statusEl = scope.querySelector('.puzzle__status');
+  var resetBtn = scope.querySelector('.puzzle__reset');
+  var hintEl = scope.querySelector('.puzzle__hint');
+  var ctx = canvas.getContext('2d');
+
+  var lang = (root.getAttribute('data-lang') || document.documentElement.lang || 'en').toLowerCase();
+  var ES = lang.indexOf('es') === 0;
+  var T = ES ? {
+    hint: 'Arrastra los puntos por los rieles hasta que ninguna línea se cruce.',
+    aria: 'Rompecabezas: arrastra los puntos por los rieles hasta que ninguna línea se cruce.',
+    level: 'Nivel', crossing: 'Líneas cruzadas', reset: 'Reiniciar',
+    win: '¡Desenredado!', move: 'movimiento', moves: 'movimientos',
+    next: 'Siguiente nivel', replay: 'Jugar de nuevo'
+  } : {
+    hint: 'Drag the points along the rails until no line crosses another.',
+    aria: 'Puzzle: drag the points along the rails until no line crosses another.',
+    level: 'Level', crossing: 'Lines crossing', reset: 'Reset',
+    win: 'Untangled!', move: 'move', moves: 'moves',
+    next: 'Next puzzle', replay: 'Play again'
+  };
+
+  // ---- Board constants (same numbers as the Unity project) ----
+  var COLS = 3, ROWS = 3;
+  var SP = 1.8;            // cellSpacing: distance between intersections
+  var RAIL = 0.5;          // railThickness
+  var MINSEP = 0.85;       // minPointSeparation
+  var STEP = 0.02;         // stepSize
+  var MAXTRAVEL = 4;       // maxTravelPerFrame
+  var RADIUS = 0.35;       // point radius (scale 0.7)
+  var LINEW = 0.14;        // lineWidth
+  var EP = 0.02;           // endpointTolerance
+  var OV = 0.12;           // overlapTolerance
+  var HIT = 0.6;           // grab radius, a little generous for touch
+  var WORLD = 3.1;         // half-size of the visible world square
+
+  var COL = {
+    rail: '#253A5C', cell: '#324F7D', line: '#FAC74F', cross: '#E83D3D',
+    point: '#FFFFFF', drag: '#FFEB8C'
+  };
+
+  // Points A..E and the lines joining them (indices into the points array).
+  var LINES = [[4, 2], [2, 3], [4, 0], [0, 1], [1, 2]];
+  // Start layouts, [col,row] for A..E. Each one is verified solvable.
+  var LEVELS = [
+    [[0, 0], [1, 1], [0, 2], [1, 0], [2, 0]],
+    [[0, 0], [1, 2], [0, 2], [1, 0], [2, 2]],
+    [[0, 0], [1, 2], [0, 2], [2, 0], [2, 2]]
+  ];
+
+  var level = 0, points = [], moves = 0, complete = false;
+  var drag = null, dragStart = null, crossing = {}, crossCount = 0, hover = false;
+
+  // ---- Geometry ----
+  function nodePos(c, r) {
+    return { x: (c - (COLS - 1) / 2) * SP, y: (r - (ROWS - 1) / 2) * SP };
+  }
+  function dist(a, b) { return Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y)); }
+  function onNode(p) { return p.a.c === p.b.c && p.a.r === p.b.r; }
+  function railPos(p) {
+    var a = nodePos(p.a.c, p.a.r);
+    if (onNode(p)) return a;
+    var b = nodePos(p.b.c, p.b.r), t = p.d / SP;
+    return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
+  }
+  function validNode(c, r) { return c >= 0 && c < COLS && r >= 0 && r < ROWS; }
+
+  // ---- Rail sliding (port of PuzzlePoint) ----
+  var DIRS = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+
+  function blocked(mover, cand, cur) {
+    for (var i = 0; i < points.length; i++) {
+      var o = points[i];
+      if (o === mover) continue;
+      var op = railPos(o);
+      var nd = dist(cand, op);
+      if (nd >= MINSEP) continue;
+      if (nd < dist(cur, op)) return true;
+    }
+    return false;
+  }
+  function pickRail(node, tx, ty) {
+    var len = Math.sqrt(tx * tx + ty * ty), best = null, bestAlign = 0.0001;
+    for (var i = 0; i < DIRS.length; i++) {
+      var nc = node.c + DIRS[i][0], nr = node.r + DIRS[i][1];
+      if (!validNode(nc, nr)) continue;
+      var align = (tx / len) * DIRS[i][0] + (ty / len) * DIRS[i][1];
+      if (align > bestAlign) { bestAlign = align; best = { c: nc, r: nr }; }
+    }
+    return best;
+  }
+  function commit(p, from, to, cand) {
+    var travelled = dist(nodePos(from.c, from.r), cand);
+    if (travelled >= SP - 0.0001) { p.a = { c: to.c, r: to.r }; p.b = { c: to.c, r: to.r }; p.d = 0; }
+    else if (travelled <= 0.0001) { p.a = { c: from.c, r: from.r }; p.b = { c: from.c, r: from.r }; p.d = 0; }
+    else { p.a = { c: from.c, r: from.r }; p.b = { c: to.c, r: to.r }; p.d = travelled; }
+  }
+  function tryStep(p, target) {
+    var cur = railPos(p), tx = target.x - cur.x, ty = target.y - cur.y;
+    if (tx * tx + ty * ty < STEP * STEP) return false;
+    var from, to;
+    if (onNode(p)) {
+      to = pickRail(p.a, tx, ty);
+      if (!to) return false;
+      from = p.a;
+    } else {
+      var dx = p.b.c - p.a.c, dy = p.b.r - p.a.r, len = Math.sqrt(dx * dx + dy * dy);
+      var along = (tx * dx + ty * dy) / len;
+      if (Math.abs(along) < 0.0001) return false;
+      if (along > 0) { from = p.a; to = p.b; } else { from = p.b; to = p.a; }
+    }
+    var ddx = to.c - from.c, ddy = to.r - from.r, n = Math.sqrt(ddx * ddx + ddy * ddy);
+    var cand = { x: cur.x + (ddx / n) * STEP, y: cur.y + (ddy / n) * STEP };
+    if (blocked(p, cand, cur)) return false;
+    commit(p, from, to, cand);
+    return true;
+  }
+  function slide(p, target) {
+    var budget = Math.ceil(MAXTRAVEL / STEP);
+    while (budget-- > 0 && tryStep(p, target)) { }
+  }
+
+  // ---- Crossing test (port of ConnectionManager) ----
+  function perp(a, b, p) {
+    var abx = b.x - a.x, aby = b.y - a.y, len = Math.sqrt(abx * abx + aby * aby);
+    if (len < 0.0001) return dist(p, a);
+    return (abx * (p.y - a.y) - aby * (p.x - a.x)) / len;
+  }
+  function within(a, b, p, tol) {
+    var abx = b.x - a.x, aby = b.y - a.y, l2 = abx * abx + aby * aby;
+    if (l2 < 0.0001) return dist(p, a) <= tol;
+    var t = ((p.x - a.x) * abx + (p.y - a.y) * aby) / l2, slack = tol / Math.sqrt(l2);
+    return t >= -slack && t <= 1 + slack;
+  }
+  function sq(a, b) { return (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y); }
+  function overlap(p1, p2, p3, p4) {
+    var t = EP * EP, sh = null, ra, rb;
+    if (sq(p1, p3) <= t) { sh = p1; ra = p2; rb = p4; }
+    else if (sq(p1, p4) <= t) { sh = p1; ra = p2; rb = p3; }
+    else if (sq(p2, p3) <= t) { sh = p2; ra = p1; rb = p4; }
+    else if (sq(p2, p4) <= t) { sh = p2; ra = p1; rb = p3; }
+    if (sh) {
+      var da = { x: ra.x - sh.x, y: ra.y - sh.y }, db = { x: rb.x - sh.x, y: rb.y - sh.y };
+      var la = Math.sqrt(da.x * da.x + da.y * da.y), lb = Math.sqrt(db.x * db.x + db.y * db.y);
+      if (la * la < 0.0001 || lb * lb < 0.0001) return false;
+      if ((da.x / la) * (db.x / lb) + (da.y / la) * (db.y / lb) <= 0) return false;
+      var near = la <= lb ? ra : rb, far = la <= lb ? rb : ra;
+      return Math.abs(perp(sh, far, near)) <= OV;
+    }
+    var d1 = perp(p3, p4, p1), d2 = perp(p3, p4, p2), d3 = perp(p1, p2, p3), d4 = perp(p1, p2, p4);
+    var sA = (d1 > EP && d2 < -EP) || (d1 < -EP && d2 > EP);
+    var sB = (d3 > EP && d4 < -EP) || (d3 < -EP && d4 > EP);
+    if (sA && sB) return true;
+    if (Math.abs(d1) <= OV && within(p3, p4, p1, OV)) return true;
+    if (Math.abs(d2) <= OV && within(p3, p4, p2, OV)) return true;
+    if (Math.abs(d3) <= OV && within(p1, p2, p3, OV)) return true;
+    if (Math.abs(d4) <= OV && within(p1, p2, p4, OV)) return true;
+    return false;
+  }
+  function evaluate() {
+    var ps = points.map(railPos), bad = {}, count = 0;
+    for (var i = 0; i < LINES.length; i++) {
+      for (var j = i + 1; j < LINES.length; j++) {
+        if (overlap(ps[LINES[i][0]], ps[LINES[i][1]], ps[LINES[j][0]], ps[LINES[j][1]])) {
+          bad[i] = true; bad[j] = true;
+        }
+      }
+    }
+    for (var k in bad) if (bad.hasOwnProperty(k)) count++;
+    crossing = bad; crossCount = count;
+  }
+
+  // ---- UI state ----
+  function updateStatus() {
+    statusEl.textContent = T.level + ' ' + (level + 1) + ' / ' + LEVELS.length + ' · ' + T.crossing + ': ' + crossCount;
+  }
+  function showWin() {
+    complete = true;
+    winTitle.textContent = T.win;
+    winMoves.textContent = moves + ' ' + (moves === 1 ? T.move : T.moves);
+    againBtn.textContent = level === LEVELS.length - 1 ? T.replay : T.next;
+    winBox.hidden = false;
+  }
+  function loadLevel(i) {
+    level = i; moves = 0; complete = false; drag = null; hover = false;
+    winBox.hidden = true;
+    points = LEVELS[i].map(function (n, idx) {
+      return { id: 'ABCDE'.charAt(idx), a: { c: n[0], r: n[1] }, b: { c: n[0], r: n[1] }, d: 0 };
+    });
+    evaluate(); updateStatus(); draw();
+  }
+
+  // ---- Drawing ----
+  function draw() {
+    var size = canvas.width, s = size / (2 * WORLD);
+    function X(x) { return (x + WORLD) * s; }
+    function Y(y) { return (WORLD - y) * s; }
+    function box(cx, cy, w, h, color) {
+      ctx.fillStyle = color;
+      ctx.fillRect(X(cx - w / 2), Y(cy + h / 2), w * s, h * s);
+    }
+    ctx.clearRect(0, 0, size, size);
+
+    var spanW = (COLS - 1) * SP, spanH = (ROWS - 1) * SP, outerW = spanW + RAIL, outerH = spanH + RAIL;
+    box(0, 0, outerW, outerH, COL.cell);
+    for (var c = 0; c < COLS; c++) box(nodePos(c, 0).x, 0, RAIL, outerH, COL.rail);
+    for (var r = 0; r < ROWS; r++) box(0, nodePos(0, r).y, outerW, RAIL, COL.rail);
+
+    var ps = points.map(railPos);
+    ctx.lineCap = 'round'; ctx.lineWidth = LINEW * s;
+    for (var i = 0; i < LINES.length; i++) {
+      var a = ps[LINES[i][0]], b = ps[LINES[i][1]];
+      ctx.strokeStyle = crossing[i] ? COL.cross : COL.line;
+      ctx.beginPath(); ctx.moveTo(X(a.x), Y(a.y)); ctx.lineTo(X(b.x), Y(b.y)); ctx.stroke();
+    }
+    for (var k = 0; k < points.length; k++) {
+      if (points[k] === drag) continue;
+      dot(ps[k], COL.point);
+    }
+    if (drag) dot(railPos(drag), COL.drag);
+    function dot(p, color) {
+      ctx.fillStyle = color;
+      ctx.beginPath(); ctx.arc(X(p.x), Y(p.y), RADIUS * s, 0, Math.PI * 2); ctx.fill();
+    }
+  }
+  function resize() {
+    var dpr = window.devicePixelRatio || 1, w = canvas.clientWidth || 320;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(w * dpr);
+    draw();
+  }
+
+  // ---- Input ----
+  function worldOf(e) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+      x: ((e.clientX - rect.left) / rect.width) * 2 * WORLD - WORLD,
+      y: WORLD - ((e.clientY - rect.top) / rect.height) * 2 * WORLD
+    };
+  }
+  function nearest(w) {
+    var best = null, bd = HIT;
+    for (var i = 0; i < points.length; i++) {
+      var d = dist(w, railPos(points[i]));
+      if (d <= bd) { bd = d; best = points[i]; }
+    }
+    return best;
+  }
+  function endDrag() {
+    if (!drag) return;
+    if (dist(railPos(drag), dragStart) > 0.05) moves++;
+    drag = null;
+    canvas.style.cursor = 'default';
+    updateStatus(); draw();
+  }
+
+  canvas.addEventListener('pointerdown', function (e) {
+    if (complete) return;
+    var p = nearest(worldOf(e));
+    if (!p) return;
+    drag = p; dragStart = railPos(p);
+    if (canvas.setPointerCapture) canvas.setPointerCapture(e.pointerId);
+    canvas.style.cursor = 'grabbing';
+    e.preventDefault();
+    draw();
+  });
+  canvas.addEventListener('pointermove', function (e) {
+    var w = worldOf(e);
+    if (!drag) {
+      var over = !!nearest(w) && !complete;
+      if (over !== hover) { hover = over; canvas.style.cursor = over ? 'grab' : 'default'; }
+      return;
+    }
+    slide(drag, w);
+    evaluate(); updateStatus(); draw();
+    if (crossCount === 0) { endDrag(); showWin(); }
+  });
+  canvas.addEventListener('pointerup', endDrag);
+  canvas.addEventListener('pointercancel', endDrag);
+
+  resetBtn.addEventListener('click', function () { loadLevel(level); });
+  againBtn.addEventListener('click', function () { loadLevel((level + 1) % LEVELS.length); });
+  window.addEventListener('resize', resize);
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(canvas);
+
+  canvas.setAttribute('aria-label', T.aria);
+  hintEl.textContent = T.hint;
+  resetBtn.textContent = T.reset;
+  loadLevel(0);
+  resize();
+})();
+</script>
+{% endraw %}
