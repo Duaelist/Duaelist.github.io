@@ -2,6 +2,7 @@
 # `image` is optional — leave it blank to show a placeholder block,
 # or point it at a file under /assets/img/work/.
 # `height` roughly controls the tile's size in the masonry layout.
+# Spanish: add title_es / category_es (English is shown if missing).
 # `accent: true` gives a tile the red highlight treatment — use it sparingly.
 - title: "Flipbook VFX"
   category: "VFX"
@@ -9,46 +10,65 @@
   image: "/assets/img/work/sheetf.png"
   accent: true
 - title: "3D House Render"
+  title_es: "Render 3D de casa"
   category: "Architecture Render"
+  category_es: "Render arquitectónico"
   height: 240
   image: "/assets/img/work/re1.jpg"
 - title: "3D House Render"
+  title_es: "Render 3D de casa"
   category: "Architecture Render"
+  category_es: "Render arquitectónico"
   height: 200
   image: "/assets/img/work/re2.jpg"
 - title: "Flipbook as Defense"
+  title_es: "Flipbook como defensa"
   category: "VFX"
   height: 300
   image: "/assets/img/work/VF1.gif"
 - title: "Fun Milk"
   category: "Design Renders"
+  category_es: "Renders de diseño"
   height: 380
   image: "/assets/img/work/marketing.png"
 - title: "Animations for combat"
+  title_es: "Animaciones de combate"
   category: "Combat animations"
+  category_es: "Animaciones de combate"
   height: 220
   image: "/assets/img/work/hrn1.png"
 - title: "Animations for combat"
+  title_es: "Animaciones de combate"
   category: "Combat animations"
+  category_es: "Animaciones de combate"
   height: 380
   image: "/assets/img/work/tl1.gif"
 - title: "Hero Character"
+  title_es: "Personaje héroe"
   category: "Production ready"
+  category_es: "Listo para producción"
   height: 340
   image: "/assets/img/work/s1.png"
 - title: "Texture Study"
+  title_es: "Estudio de texturas"
   category: "Lookdev"
   height: 200
   image: "/assets/img/work/s2.png"
 - title: "Stylized Animal"
+  title_es: "Animal estilizado"
   category: "Modeling & texture"
+  category_es: "Modelado y texturas"
   height: 280
   image: "/assets/img/work/s3.png"
 - title: "Armor Set"
+  title_es: "Set de armadura"
   category: "Hard surface"
+  category_es: "Hard surface"
   height: 240
   image: "/assets/img/work/s4.png"
 - title: "Concept Sculpt"
+  title_es: "Escultura conceptual"
   category: "Blockout pass"
+  category_es: "Pase de blockout"
   height: 200
   image: "/assets/img/work/s6.png"

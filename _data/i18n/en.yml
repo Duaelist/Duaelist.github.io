@@ -1,0 +1,49 @@
+# Interface text, English. Same keys as es.yml.
+# Site-wide values that live in _config.yml (title, tagline, cta_label, email,
+# social) are used as-is for English; es.yml can override them for Spanish.
+present: "Present"
+all: "All"
+view_project: "View project"
+close_details: "Close details"
+nav:
+  menu_label: "Section links"
+  links_label: "Contact and social links"
+  language: "Language"
+  about: "About"
+  featured: "Featured"
+  projects: "Projects"
+  experience: "Experience"
+  skills: "Skills"
+  contact: "Contact"
+hero:
+  meta: "Modeling · Texturing · Lookdev · 3D pipelines"
+  view_work: "View the work"
+  caption: "viewport_01 — blockout pass"
+credits:
+  title: "Most recent works"
+  intro: "Take a Peek at what I have been working on."
+featured:
+  eyebrow: "Featured projects"
+  title: "Selected work"
+  intro: "The projects worth pointing to first."
+projects:
+  eyebrow: "Full project log"
+  title: "All projects"
+  intro: "Game jams, personal projects and experiments. Filter by stack."
+  filter_label: "Filter projects by stack"
+gallery:
+  title: "Gallery"
+  intro: "Personal studies and production-ready assets."
+experience:
+  eyebrow: "Experience"
+  title: "Where I've worked & studied"
+skills:
+  eyebrow: "Skills"
+  title: "Toolkit"
+cta:
+  title: "Let's build something."
+  intro: "Open to collaborating on new projects — reach out however's easiest."
+footer:
+  rights: "All rights reserved."
+project_page:
+  back: "← Back to projects"

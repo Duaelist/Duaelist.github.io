@@ -1,0 +1,51 @@
+# Texto de la interfaz, español. Mismas claves que en.yml.
+# Las claves tagline y cta_label sustituyen a las de _config.yml en la versión
+# en español. Revisa que digan lo que quieres.
+tagline: "Enfoque en Gestión de Proyectos y QA"
+cta_label: "Contáctame"
+present: "Actualidad"
+all: "Todos"
+view_project: "Ver proyecto"
+close_details: "Cerrar detalles"
+nav:
+  menu_label: "Enlaces de sección"
+  links_label: "Enlaces de contacto y redes"
+  language: "Idioma"
+  about: "Acerca de"
+  featured: "Destacados"
+  projects: "Proyectos"
+  experience: "Experiencia"
+  skills: "Habilidades"
+  contact: "Contacto"
+hero:
+  meta: "Modelado · Texturizado · Lookdev · Pipelines 3D"
+  view_work: "Ver el trabajo"
+  caption: "viewport_01 — pase de blockout"
+credits:
+  title: "Trabajos más recientes"
+  intro: "Echa un vistazo a lo que he estado haciendo."
+featured:
+  eyebrow: "Proyectos destacados"
+  title: "Trabajo seleccionado"
+  intro: "Los proyectos que vale la pena mostrar primero."
+projects:
+  eyebrow: "Registro completo de proyectos"
+  title: "Todos los proyectos"
+  intro: "Game jams, proyectos personales y experimentos. Filtra por stack."
+  filter_label: "Filtrar proyectos por stack"
+gallery:
+  title: "Galería"
+  intro: "Estudios personales y assets listos para producción."
+experience:
+  eyebrow: "Experiencia"
+  title: "Dónde he trabajado y estudiado"
+skills:
+  eyebrow: "Habilidades"
+  title: "Herramientas"
+cta:
+  title: "Construyamos algo."
+  intro: "Abierto a colaborar en nuevos proyectos: escríbeme por el medio que te resulte más fácil."
+footer:
+  rights: "Todos los derechos reservados."
+project_page:
+  back: "← Volver a proyectos"

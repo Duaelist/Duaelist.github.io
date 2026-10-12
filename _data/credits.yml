@@ -16,8 +16,13 @@
 #   Inside `description` you can also use Markdown: ### headings,
 #   **bold**, - lists, [links](url) and images ![alt](/assets/img/work/x.png)
 #   link_url / link_label - button at the bottom of the overlay
+#
+# Spanish version: add the same field with an _es suffix (title_es, role_es,
+# description_es, link_label_es and caption_es inside gallery items). If an _es
+# field is missing, the English text is shown on the Spanish page.
 - title: "Snake Space"
   role: "PM, Environment Art, Textures, Bug Tracking and some VFX"
+  role_es: "PM, arte de entornos, texturas, seguimiento de bugs y algo de VFX"
   year: "2026"
   image: "/assets/img/work/hd1.gif"
   banner: "/assets/img/work/snake-space-banner.jpg"   # wide image at the top of the overlay
@@ -69,26 +74,79 @@
     - Wesley Chang: Sound collaborator
 
     No generative AI was used.
+  description_es: |
+    Snake Space es un shooter en primera persona de precisión y alto riesgo en el que juegas como Dorian, un científico parcialmente infectado por un parásito serpiente extradimensional que todavía lucha por mantener el control. En clara desventaja numérica, tu mejor ventaja es la habilidad de cambiar de fase, que te permite explorar o moverte a una mejor posición cuando la situación se vuelve demasiado peligrosa.
+
+    **Estado:** Publicado · **Plataforma:** Windows · Descarga gratuita en itch.io
+
+    ### Mi rol
+
+    Fui el project manager y también hice texturas y arte de entornos. Hacer ambas cosas fue útil en un equipo pequeño: estar cerca del arte me permitía saber cuánto tiempo llevaban realmente las cosas, así que mi planeación se mantuvo honesta y cercana al equipo.
+
+    ### Cómo mantuve el proyecto organizado
+
+    Nuestro reto era triple: mantener a todo el equipo contento y motivado, dándole cosas que disfrutara hacer, ya que para algunos integrantes era su primer proyecto; además, como todavía estábamos aprendiendo, el calendario tuvo que ajustarse para incluir tiempo de aprendizaje; y la suma de ambos factores creó un reto adicional, el tiempo, porque tres meses resultan bastante justos. Teníamos menos de tres meses para hacer un juego que se sintiera bien, así que cada semana contaba. Mi respuesta fue el orden, y muchas hojas de cálculo. Tareas, fechas límite y bugs vivían en hojas compartidas, cada una con una función clara, para que nadie tuviera que preguntar qué hacer después ni dónde buscar.
+
+    - **Un solo lugar para consultar:** todos trabajaban con las mismas hojas, así que el plan nunca estaba solo en la cabeza de alguien; aun así, en los stand ups se podían hacer muchos ajustes.
+    - **Bugs con historial:** el seguimiento de bugs era parte de mi trabajo, y una lista escrita facilitaba ver qué estaba abierto, qué estaba resuelto y qué seguía bloqueándonos. Muchos se registraron en JIRA y Hack'n Plan.
+    - **Problemas visibles a tiempo:** cuando una tarea se retrasaba, se notaba en la hoja esa misma semana, cuando todavía había tiempo de mover cosas.
+
+    Nuestras herramientas incluyeron Google Sheets, JIRA y Hack'n Plan; cada plataforma tiene sus fortalezas.
+
+    Escribí más sobre esta forma de trabajar en mi proyecto **Gestión con hojas de cálculo**.
+
+    ### Retos y lo que aprendí
+
+    El calendario fue solo la mitad del reto. La otra mitad fue el lado humano: los conflictos dentro del equipo y construir un equipo que confiara entre sí. Poner las prioridades por escrito ayudó mucho. También aprendí a ser flexible y a confiar en mi equipo: a veces no conseguíamos el resultado deseado, pero sí algo satisfactorio o incluso mejor, y eso motivaba al equipo a trabajar todavía más.
+
+    ### Equipo
+
+    - **Rodrigo Alberto Galvan Alejandre**: PM, texturas, arte de entornos
+    - **Mel Mirahmadi**: Arte, animaciones de personajes, VFX, diseño de UI
+    - **Martin Navarro**: Diseño de niveles, diseño de sonido, QA
+    - **Carson Wang**: Programación, diseño de combate
+
+    ### Colaboradores externos
+
+    - Maat Ramirez Morales: Arte conceptual
+    - Izak Arida: Colaboración musical
+    - Jon Hunwick: Arte conceptual
+    - Natalia Casados: Arte de props
+    - Natalie Wong: Arte de props
+    - Abigail Gravill: Arte conceptual
+    - Juan Destefano: Colaboración de sonido
+    - Wesley Chang: Colaboración de sonido
+
+    No se utilizó IA generativa.
   gallery:
     - src: "/assets/img/work/hd1.gif"
       caption: "Gameplay"
+      caption_es: "Gameplay"
       wide: true
     - src: "/assets/img/work/snake-space-1.jpg"
       caption: "Reactor corridor"
+      caption_es: "Pasillo del reactor"
     - src: "/assets/img/work/snake-space-2.jpg"
       caption: "Corridor in the dark"
+      caption_es: "Pasillo en la oscuridad"
     - src: "/assets/img/work/snake-space-3.jpg"
       caption: "Purple-tinted view with an enemy silhouette"
+      caption_es: "Vista en tonos morados con la silueta de un enemigo"
     - src: "/assets/img/work/snake-space-4.jpg"
       caption: "Combat in the lab"
+      caption_es: "Combate en el laboratorio"
     - src: "/assets/img/work/snake-space-5.jpg"
       caption: "Biohazard lab"
+      caption_es: "Laboratorio de riesgo biológico"
     - src: "/assets/img/work/snake-space-6.jpg"
       caption: "Reactor core in the dark"
+      caption_es: "Núcleo del reactor en la oscuridad"
   link_url: "https://vfs-gdpg.itch.io/snake-space"
   link_label: "Play on itch.io"
+  link_label_es: "Jugar en itch.io"
 - title: "Super Hot Alike"
   role: "Game Design, Level Design and Programming"
+  role_es: "Diseño de juego, diseño de niveles y programación"
   year: "2024"
   image: "/assets/img/work/super-hot-alike-1.jpg"
   banner: "/assets/img/work/super-hot-alike-2.jpg"
@@ -134,21 +192,69 @@
     - **Manuel Armando Cabrera Garcia**: Assets
 
     Blueprint skeleton and props found online by GamedevEnabled.
+  description_es: |
+    Super Hot Alike es un prototipo en primera persona hecho con el espíritu de Superhot, el juego donde el tiempo solo avanza cuando tú te mueves. Lo hicimos un equipo de dos personas, y mi enfoque fue el diseño de niveles y de juego: una bodega con estantes, tarimas y barriles, con enemigos colocados por todo el espacio.
+
+    *Pendiente: una o dos frases en tus propias palabras. Qué querías explorar y qué tanto se parece al original.*
+
+    **Estado:** Prototipo · **Tamaño del equipo:** 2 · **Motor:** Unreal Engine (Blueprints)
+
+    ### Mi rol
+
+    Me encargué de todo excepto los assets: diseño de juego, diseño de niveles, programación y el resto del trabajo que mantiene en marcha un prototipo. Con solo dos personas no había a quién pasarle un problema, así que seguí cada decisión desde la primera idea hasta la versión jugable.
+
+    ### Dividir el trabajo
+
+    Manuel Armando Cabrera Garcia fue responsable de los assets, y yo me encargué de todo lo demás. Una división clara nos permitió trabajar en paralelo sin esperarnos el uno al otro.
+
+    El proyecto partió de un esqueleto de Blueprints y un conjunto de props que GamedevEnabled encontró en internet, para poder dedicar nuestro tiempo al diseño en lugar de reconstruir lo básico.
+
+    *Pendiente: explica qué construyeron o cambiaron Manuel y tú sobre esa base, y cómo se mantenían sincronizados.*
+
+    ### Diseño de niveles y de juego
+
+    En un juego donde el tiempo solo avanza cuando te mueves, cada encuentro se convierte en un pequeño rompecabezas de posición y tiempo. Por eso el diseño de niveles es una parte central del juego y no solo un fondo. También fue la parte más grande de mi trabajo aquí, seguida del diseño de juego.
+
+    Las imágenes de abajo muestran el proceso: un blockout en blanco de la bodega, una vista cenital de la distribución del nivel y enemigos colocados dentro del espacio.
+
+    *Pendiente: describe cómo la distribución guía al jugador, cómo decidiste dónde va cada enemigo y qué cambiaste después de las pruebas de juego.*
+
+    ### Programación
+
+    *Pendiente: los sistemas en los que trabajaste. Por ejemplo, cómo el tiempo se ralentiza y se acelera, cómo se comportan los enemigos y los proyectiles, y cómo se sienten los controles del jugador.*
+
+    ### Retos y lo que aprendí
+
+    *Pendiente: tus reflexiones personales. Qué fue difícil, qué harías diferente y de qué estás orgulloso.*
+
+    ### Equipo
+
+    - **Rodrigo Alberto Galvan Alejandre**: Diseño de juego, diseño de niveles, programación
+    - **Manuel Armando Cabrera Garcia**: Assets
+
+    Esqueleto de Blueprints y props encontrados en internet por GamedevEnabled.
   gallery:
     - src: "/assets/img/work/super-hot-alike-1.jpg"
       caption: "White-box blockout of the warehouse"
+      caption_es: "Blockout en blanco de la bodega"
       wide: true
     - src: "/assets/img/work/super-hot-alike-3.jpg"
       caption: "Top-down view of the level layout"
+      caption_es: "Vista cenital de la distribución del nivel"
     - src: "/assets/img/work/super-hot-alike-4.jpg"
       caption: "Another angle of the blockout"
+      caption_es: "Otro ángulo del blockout"
     - src: "/assets/img/work/super-hot-alike-5.jpg"
       caption: "Enemy placement near the barrels"
+      caption_es: "Enemigos colocados junto a los barriles"
       wide: true
   link_url: "https://www.behance.net/gallery/192687313/Level-and-Game-Design-for-Videogame-(Superhot)"
   link_label: "View on Behance"
+  link_label_es: "Ver en Behance"
 - title: "Managing trought Sheets"
+  title_es: "Gestión con hojas de cálculo"
   role: "Project Management"
+  role_es: "Gestión de proyectos"
   year: "2026"
   image: "/assets/img/work/PM1.png"
   tools: ["Google Sheets"]
@@ -156,11 +262,17 @@
     Placeholder: describe the problem the sheets solved and who used them.
 
     Placeholder: how the system works and what changed for the team after adopting it.
+  description_es: |
+    *Pendiente: describe el problema que resolvieron las hojas de cálculo y quién las usaba.*
+
+    *Pendiente: cómo funciona el sistema y qué cambió para el equipo después de adoptarlo.*
   gallery: []
   link_url: ""
   link_label: ""
 - title: "Management and Design for TV Azteca"
+  title_es: "Gestión y diseño para TV Azteca"
   role: "Manager/Designer"
+  role_es: "Manager y diseñador"
   year: "2022"
   image: "/assets/img/work/tv-azteca-1.jpg"
   banner: "/assets/img/work/tv-azteca-banner.avif"
@@ -202,20 +314,62 @@
     - **Rodrigo Alberto Galvan Alejandre**: Manager, designer
 
     *Placeholder: add teammates and their roles.*
+  description_es: |
+    Para TV Azteca gestioné y diseñé visuales para pantallas de más de 20 metros de ancho. Ningún programa por sí solo podía hacer ese trabajo, así que construimos un sistema híbrido que unía sonido, visuales en vivo y planeación: Ableton para la música, After Effects para crear los diseños, Resolume Arena para reproducirlos en las pantallas y Google Sheets para mantener organizado a todo el equipo.
+
+    *Pendiente: una o dos frases sobre qué fue el show o evento, dónde se realizó y qué mostraban las pantallas.*
+
+    **Cliente:** TV Azteca · **Tamaño de pantalla:** más de 20 metros de ancho
+
+    ### Mi rol
+
+    Fui a la vez el manager y un diseñador. En una pantalla de este tamaño el diseño y el calendario no se pueden separar: cada efecto, resolución y tiempo de render tiene un costo real. Diseñar junto al equipo mantuvo mi planeación honesta, y gestionar el plan significaba que siempre sabía qué necesitaban los diseños a continuación.
+
+    *Pendiente: tus responsabilidades exactas (a quién coordinabas, qué le entregabas al cliente) y cómo repartías tu tiempo entre gestionar y diseñar.*
+
+    ### El sistema híbrido
+
+    Cada programa tenía una función clara:
+
+    - **After Effects:** donde se crearon los diseños y las animaciones.
+    - **Resolume Arena:** donde se reproducían y controlaban los visuales. Los clips se organizaban en columnas, y efectos como Contour Glow convertían la imagen de una cámara en vivo en un contorno brillante.
+    - **Ableton:** el sonido. Las notas MIDI llevan la música, y un LFO mueve el drive de un saturador al ritmo del tempo, de modo que el sonido pulsa con el beat.
+    - **Google Sheets:** el plan detrás de todo, con tareas, fechas límite y assets en un solo lugar.
+
+    *Pendiente: cómo se conectaron Ableton y Resolume (¿MIDI, audio, otra cosa?) y cómo pasaban los archivos de After Effects a Resolume.*
+
+    ### Cómo mantuve el proyecto organizado
+
+    *Pendiente: cómo usabas las hojas de cálculo, cómo se seguían las fechas límite y las entregas, y cómo se mantenían alineados los diseñadores y los operadores de pantalla.*
+
+    ### Retos y lo que aprendí
+
+    *Pendiente: trabajar a más de 20 metros (resolución, legibilidad, pruebas en la pantalla real), calendarios ajustados y qué harías diferente.*
+
+    ### Equipo
+
+    - **Rodrigo Alberto Galvan Alejandre**: Manager, diseñador
+
+    *Pendiente: agrega a tus compañeros y sus roles.*
   gallery:
     - src: "/assets/img/work/tv-azteca-1.jpg"
       caption: "Resolume Arena: Contour Glow turning a live camera feed into a glowing outline"
+      caption_es: "Resolume Arena: Contour Glow convirtiendo la imagen de una cámara en vivo en un contorno brillante"
     - src: "/assets/img/work/tv-azteca-2.avif"
       caption: "Ableton: MIDI notes in the piano roll"
+      caption_es: "Ableton: notas MIDI en el piano roll"
   link_url: ""
   link_label: ""
 - title: "Short Film Title"
   role: "Creature Sculpt"
+  role_es: "Escultura de criaturas"
   year: "2021"
   image: ""
   tools: ["ZBrush"]
   description: |
     Placeholder: describe the film and the creature you sculpted.
+  description_es: |
+    *Pendiente: describe el cortometraje y la criatura que esculpiste.*
   gallery: []
   link_url: ""
   link_label: ""

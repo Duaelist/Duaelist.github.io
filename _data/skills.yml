@@ -1,7 +1,10 @@
 # One entry per skills group. `items` renders as a row of chips.
 - category: "Engines & Graphics"
+  category_es: "Motores y gráficos"
   items: ["Unity", "Unreal Engine 5", "ShaderGraph", "Blender"]
 - category: "Languages"
+  category_es: "Lenguajes"
   items: ["C#", "C++", "Python"]
 - category: "Tools & Workflow"
+  category_es: "Herramientas y flujo de trabajo"
   items: ["Git", "VS Code", "Trello"]
