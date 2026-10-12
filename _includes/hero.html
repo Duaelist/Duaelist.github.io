@@ -28,12 +28,35 @@
 </section>
 
 <style>
-  .puzzle { position: relative; width: 100%; max-width: 440px; margin-inline: auto; background: #182440; border-radius: 18px; overflow: hidden; }
+  .puzzle { container-type: inline-size; position: relative; width: 100%; max-width: 440px; margin-inline: auto; background: #182440; border-radius: 18px; overflow: hidden; }
   .puzzle__canvas { display: block; width: 100%; aspect-ratio: 1 / 1; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
-  .puzzle__win { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: .5rem; text-align: center; color: #fff; background: rgba(24, 36, 64, .86); }
+  .puzzle__win { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: .4rem; padding: 1rem; text-align: center; color: #fff; background: rgba(24, 36, 64, .9); }
   .puzzle__win[hidden] { display: none; }
-  .puzzle__win-title { margin: 0; font-size: 1.6rem; font-weight: 700; color: #FAC74F; }
-  .puzzle__win-moves { margin: 0 0 .6rem; opacity: .85; }
+  .puzzle__win-title { margin: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: .05em .3em; font-size: 2rem; font-size: clamp(1.4rem, 8cqw, 2.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -.01em; }
+  .puzzle__chunk { display: inline-block; }
+  .puzzle__chunk--lead { flex-basis: 100%; font-size: 1.5em; }
+  .puzzle__chunk--accent { color: #FAC74F; }
+  .puzzle__win-moves { margin: .5rem 0 .4rem; color: rgba(255, 255, 255, .8); }
+  .puzzle__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* Win animation: the dim fades in, the three chunks pop one after another, then the moves + button rise in. */
+  .puzzle__win.is-playing { animation: puzzle-dim .3s ease-out backwards; }
+  .puzzle__win.is-playing .puzzle__chunk { animation: puzzle-pop .5s cubic-bezier(.2, .9, .3, 1.25) backwards; }
+  .puzzle__win.is-playing .puzzle__win-moves,
+  .puzzle__win.is-playing .puzzle__again { animation: puzzle-rise .35s ease-out 1.05s backwards; }
+  @keyframes puzzle-dim { from { background: rgba(24, 36, 64, 0); } }
+  @keyframes puzzle-pop {
+    0%   { opacity: 0; transform: scale(.3) translateY(14px) rotate(-6deg); }
+    60%  { opacity: 1; transform: scale(1.18) translateY(-2px) rotate(2deg); }
+    100% { opacity: 1; transform: none; }
+  }
+  @keyframes puzzle-rise { from { opacity: 0; transform: translateY(8px); visibility: hidden; } }
+  @media (prefers-reduced-motion: reduce) {
+    .puzzle__win.is-playing,
+    .puzzle__win.is-playing .puzzle__chunk,
+    .puzzle__win.is-playing .puzzle__win-moves,
+    .puzzle__win.is-playing .puzzle__again { animation: none; }
+  }
   .puzzle__bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; max-width: 440px; margin: .75rem auto 0; font-size: .85rem; }
   .puzzle__status { opacity: .8; }
   .puzzle__reset { padding: .4rem .9rem; font-size: .85rem; }
@@ -64,13 +87,15 @@
     hint: 'Arrastra los puntos por los rieles hasta que ninguna línea se cruce.',
     aria: 'Rompecabezas: arrastra los puntos por los rieles hasta que ninguna línea se cruce.',
     level: 'Nivel', crossing: 'Líneas cruzadas', reset: 'Reiniciar',
-    win: '¡Desenredado!', move: 'movimiento', moves: 'movimientos',
+    chunks: ['Sip,', 'Eso es', 'Game Design'], winFull: 'Sip, Eso es Game Design',
+    move: 'movimiento', moves: 'movimientos',
     next: 'Siguiente nivel', replay: 'Jugar de nuevo'
   } : {
     hint: 'Drag the points along the rails until no line crosses another.',
     aria: 'Puzzle: drag the points along the rails until no line crosses another.',
     level: 'Level', crossing: 'Lines crossing', reset: 'Reset',
-    win: 'Untangled!', move: 'move', moves: 'moves',
+    chunks: ['Yep!', "That's", 'Game Design'], winFull: "Yep! That's Game Design",
+    move: 'move', moves: 'moves',
     next: 'Next puzzle', replay: 'Play again'
   };
 
@@ -230,15 +255,31 @@
   }
   function showWin() {
     complete = true;
-    winTitle.textContent = T.win;
+    winTitle.textContent = '';
+    var sr = document.createElement('span');
+    sr.className = 'puzzle__sr';
+    sr.textContent = T.winFull;
+    winTitle.appendChild(sr);
+    T.chunks.forEach(function (text, i) {
+      var c = document.createElement('span');
+      c.className = 'puzzle__chunk' + (i === 0 ? ' puzzle__chunk--lead' : '') + (i === T.chunks.length - 1 ? ' puzzle__chunk--accent' : '');
+      c.textContent = text;
+      c.setAttribute('aria-hidden', 'true');
+      c.style.animationDelay = (0.1 + i * 0.18) + 's';
+      winTitle.appendChild(c);
+    });
     winMoves.textContent = moves + ' ' + (moves === 1 ? T.move : T.moves);
     againBtn.textContent = level === LEVELS.length - 1 ? T.replay : T.next;
+    winBox.classList.remove('is-playing');
     winBox.hidden = false;
+    void winBox.offsetWidth;            // restart the animation on every win
+    winBox.classList.add('is-playing');
   }
   function loadLevel(i) {
     cancelSnap();
     level = i; moves = 0; complete = false; drag = null; hover = false;
     winBox.hidden = true;
+    winBox.classList.remove('is-playing');
     points = LEVELS[i].map(function (n, idx) {
       return { id: 'ABCDE'.charAt(idx), a: { c: n[0], r: n[1] }, b: { c: n[0], r: n[1] }, d: 0 };
     });
