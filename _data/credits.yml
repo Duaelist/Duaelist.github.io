@@ -27,9 +27,9 @@
   image: "/assets/img/work/hd1.gif"
   banner: "/assets/img/work/snake-space-banner.jpg"   # wide image at the top of the overlay
   # Tool chips: add the ones you actually used, e.g. ["Unity", "Blender"]
-  tools: []
+  tools: ["Google Sheets", "JIRA", "Hack'n Plan"]
   description: |
-    Snake Space is a first-person high-risk precision shooter where you play as Dorian, a scientist partially infected by an extra-dimensional snake parasite, still fighting to maintain control. Outnumbered, one advantage is your phase shifting ability, that allows you to scout or move to a better vantage point when things get too threatening.
+    Snake Space is a first-person, high-risk precision shooter in which you play as Dorian, a scientist partially infected by an extra-dimensional snake parasite who is still fighting to keep control. Outnumbered, your one advantage is your phase-shifting ability, which lets you scout ahead or move to a better vantage point when things get too threatening.
 
     **Status:** Released · **Platform:** Windows · Free to download on itch.io
 
@@ -39,21 +39,23 @@
 
     ### How I kept the project organized
 
-    Our challenge was Triple, maintaining the entire team happy and motivated, giving them something they like to do since it was some of the team members first project, adding to that, the fact that we were still learning made it so the timeline had to be adjusted and account for learning time, finally these two combined created the additional challenge of time, since three months become pretty tight actually. We had under three months to make a game that felt good to play, so every week counted. My answer was order, and a lot of sheets. Tasks, deadlines and bugs lived in shared sheets, each with one clear job, so nobody had to ask what to do next or where to look.
+    We faced three challenges at once. The first was keeping the whole team happy and motivated by giving everyone work they enjoyed, especially since this was the first project for some of them. The second was that we were all still learning, so the timeline had to include time for learning. The third came from the first two: time itself. We had less than three months to make a game that felt good to play, and that is tighter than it sounds, so every week counted.
 
-    - **One place to look:** everyone worked from the same sheets, so the plan was never in somebody's head, even so, many adjustments could be made on the stand ups.
-    - **Bugs with a trail:** bug tracking was part of my job, and a written list made it easy to see what was open, what was fixed and what still blocked us many of them were trackend on the platform JIRA and hack'n plan.
+    My answer was order, and a lot of sheets. Tasks, deadlines and bugs lived in shared sheets, each with one clear job, so nobody had to ask what to do next or where to look.
+
+    - **One place to look:** everyone worked from the same sheets, so the plan was never only in somebody's head. Even so, plenty of adjustments were still made during stand-ups.
+    - **Bugs with a trail:** bug tracking was part of my job, and a written list made it easy to see what was open, what was fixed and what was still blocking us. Many bugs were tracked in JIRA and Hack'n Plan.
     - **Problems visible early:** when a task slipped, it showed in the sheet that week, while there was still time to move things around.
 
-    Our tools include Google sheets, JIRA and hack'n plan. each platform has its strenghts
+    Our tools were Google Sheets, JIRA and Hack'n Plan, and each platform had its own strengths.
+
+    *Placeholder: one line on what each platform was best for (what you used Sheets for, what you used JIRA for, what you used Hack'n Plan for).*
 
     I wrote more about this way of working in my **Managing through Sheets** project.
 
     ### Challenges and what I learned
 
-    The timeline was only half of the challenge. The other half was the people side: conflicts inside the team and building a team that trusted each other. Putting priorities in writing helped a lot. It also learned to be flexible and trust my team, sometimes we didnt get the desired result but we got something satisfactory or even better and that motivated the team into working more
-
-   
+    The timeline was only half of the challenge. The other half was the people side: conflicts inside the team and building a team that trusted each other. Putting priorities in writing helped a lot. I also learned to be flexible and to trust my team. Sometimes we didn't get the result we wanted, but we got something satisfactory or even better, and that motivated the team to work harder.
 
     ### Team
 
@@ -75,7 +77,7 @@
 
     No generative AI was used.
   description_es: |
-    Snake Space es un shooter en primera persona de precisión y alto riesgo en el que juegas como Dorian, un científico parcialmente infectado por un parásito serpiente extradimensional que todavía lucha por mantener el control. En clara desventaja numérica, tu mejor ventaja es la habilidad de cambiar de fase, que te permite explorar o moverte a una mejor posición cuando la situación se vuelve demasiado peligrosa.
+    Snake Space es un shooter en primera persona de precisión y alto riesgo en el que juegas como Dorian, un científico parcialmente infectado por un parásito serpiente extradimensional que aún lucha por mantener el control. En clara desventaja numérica, tu mayor ventaja es la habilidad de cambiar de fase, que te permite explorar o moverte a una mejor posición cuando la situación se pone demasiado peligrosa.
 
     **Estado:** Publicado · **Plataforma:** Windows · Descarga gratuita en itch.io
 
@@ -85,19 +87,23 @@
 
     ### Cómo mantuve el proyecto organizado
 
-    Nuestro reto era triple: mantener a todo el equipo contento y motivado, dándole cosas que disfrutara hacer, ya que para algunos integrantes era su primer proyecto; además, como todavía estábamos aprendiendo, el calendario tuvo que ajustarse para incluir tiempo de aprendizaje; y la suma de ambos factores creó un reto adicional, el tiempo, porque tres meses resultan bastante justos. Teníamos menos de tres meses para hacer un juego que se sintiera bien, así que cada semana contaba. Mi respuesta fue el orden, y muchas hojas de cálculo. Tareas, fechas límite y bugs vivían en hojas compartidas, cada una con una función clara, para que nadie tuviera que preguntar qué hacer después ni dónde buscar.
+    Enfrentamos tres retos a la vez. El primero era mantener a todo el equipo contento y motivado, dándole trabajo que disfrutara, sobre todo porque para algunos integrantes era su primer proyecto. El segundo era que todavía estábamos aprendiendo, así que el calendario tuvo que incluir tiempo de aprendizaje. El tercero nació de los dos anteriores: el tiempo. Teníamos menos de tres meses para hacer un juego que se sintiera bien, y eso es más justo de lo que parece, así que cada semana contaba.
 
-    - **Un solo lugar para consultar:** todos trabajaban con las mismas hojas, así que el plan nunca estaba solo en la cabeza de alguien; aun así, en los stand ups se podían hacer muchos ajustes.
-    - **Bugs con historial:** el seguimiento de bugs era parte de mi trabajo, y una lista escrita facilitaba ver qué estaba abierto, qué estaba resuelto y qué seguía bloqueándonos. Muchos se registraron en JIRA y Hack'n Plan.
+    Mi respuesta fue el orden, y muchas hojas de cálculo. Tareas, fechas límite y bugs vivían en hojas compartidas, cada una con una función clara, para que nadie tuviera que preguntar qué hacer después ni dónde buscar.
+
+    - **Un solo lugar para consultar:** todos trabajaban con las mismas hojas, así que el plan nunca estaba solo en la cabeza de alguien. Aun así, en los stand-ups se hacían muchos ajustes.
+    - **Bugs con historial:** el seguimiento de bugs era parte de mi trabajo, y una lista escrita facilitaba ver qué estaba abierto, qué estaba resuelto y qué seguía bloqueándonos. Muchos bugs se registraron en JIRA y Hack'n Plan.
     - **Problemas visibles a tiempo:** cuando una tarea se retrasaba, se notaba en la hoja esa misma semana, cuando todavía había tiempo de mover cosas.
 
-    Nuestras herramientas incluyeron Google Sheets, JIRA y Hack'n Plan; cada plataforma tiene sus fortalezas.
+    Nuestras herramientas fueron Google Sheets, JIRA y Hack'n Plan, y cada plataforma tenía sus propias fortalezas.
+
+    *Pendiente: una línea sobre para qué servía mejor cada plataforma (para qué usaste Sheets, para qué JIRA y para qué Hack'n Plan).*
 
     Escribí más sobre esta forma de trabajar en mi proyecto **Gestión con hojas de cálculo**.
 
     ### Retos y lo que aprendí
 
-    El calendario fue solo la mitad del reto. La otra mitad fue el lado humano: los conflictos dentro del equipo y construir un equipo que confiara entre sí. Poner las prioridades por escrito ayudó mucho. También aprendí a ser flexible y a confiar en mi equipo: a veces no conseguíamos el resultado deseado, pero sí algo satisfactorio o incluso mejor, y eso motivaba al equipo a trabajar todavía más.
+    El calendario fue solo la mitad del reto. La otra mitad fue el lado humano: los conflictos dentro del equipo y construir un equipo que confiara entre sí. Poner las prioridades por escrito ayudó mucho. También aprendí a ser flexible y a confiar en mi equipo: a veces no conseguíamos el resultado que queríamos, pero sí uno satisfactorio o incluso mejor, y eso motivaba al equipo a trabajar todavía más.
 
     ### Equipo
 
@@ -166,7 +172,7 @@
 
     Manuel Armando Cabrera Garcia was responsible for the assets, and I took care of everything else. A clear split meant we could work in parallel without waiting on each other.
 
-    The project started from a Blueprint skeleton and a set of props found online by GamedevEnabled, so we could spend our time on the design instead of rebuilding the basics.
+    The project started from a Blueprint skeleton and a set of props from GamedevEnabled that we found online, so we could spend our time on the design instead of rebuilding the basics.
 
     *Placeholder: say what you and Manuel built or changed on top of that base, and how the two of you kept in sync.*
 
@@ -191,7 +197,7 @@
     - **Rodrigo Alberto Galvan Alejandre**: Game design, level design, programming
     - **Manuel Armando Cabrera Garcia**: Assets
 
-    Blueprint skeleton and props found online by GamedevEnabled.
+    Blueprint skeleton and props from GamedevEnabled, found online.
   description_es: |
     Super Hot Alike es un prototipo en primera persona hecho con el espíritu de Superhot, el juego donde el tiempo solo avanza cuando tú te mueves. Lo hicimos un equipo de dos personas, y mi enfoque fue el diseño de niveles y de juego: una bodega con estantes, tarimas y barriles, con enemigos colocados por todo el espacio.
 
@@ -207,7 +213,7 @@
 
     Manuel Armando Cabrera Garcia fue responsable de los assets, y yo me encargué de todo lo demás. Una división clara nos permitió trabajar en paralelo sin esperarnos el uno al otro.
 
-    El proyecto partió de un esqueleto de Blueprints y un conjunto de props que GamedevEnabled encontró en internet, para poder dedicar nuestro tiempo al diseño en lugar de reconstruir lo básico.
+    El proyecto partió de un esqueleto de Blueprints y un conjunto de props de GamedevEnabled que encontramos en internet, para poder dedicar nuestro tiempo al diseño en lugar de reconstruir lo básico.
 
     *Pendiente: explica qué construyeron o cambiaron Manuel y tú sobre esa base, y cómo se mantenían sincronizados.*
 
@@ -232,7 +238,7 @@
     - **Rodrigo Alberto Galvan Alejandre**: Diseño de juego, diseño de niveles, programación
     - **Manuel Armando Cabrera Garcia**: Assets
 
-    Esqueleto de Blueprints y props encontrados en internet por GamedevEnabled.
+    Esqueleto de Blueprints y props de GamedevEnabled, encontrados en internet.
   gallery:
     - src: "/assets/img/work/super-hot-alike-1.jpg"
       caption: "White-box blockout of the warehouse"
@@ -251,7 +257,7 @@
   link_url: "https://www.behance.net/gallery/192687313/Level-and-Game-Design-for-Videogame-(Superhot)"
   link_label: "View on Behance"
   link_label_es: "Ver en Behance"
-- title: "Managing trought Sheets"
+- title: "Managing through Sheets"
   title_es: "Gestión con hojas de cálculo"
   role: "Project Management"
   role_es: "Gestión de proyectos"
@@ -259,13 +265,39 @@
   image: "/assets/img/work/PM1.png"
   tools: ["Google Sheets"]
   description: |
-    Placeholder: describe the problem the sheets solved and who used them.
+    Managing through Sheets is the way I run projects: shared spreadsheets where tasks, deadlines, bugs and assets each have a clear home, so nobody on the team has to ask what to do next or where to look.
 
-    Placeholder: how the system works and what changed for the team after adopting it.
+    I have used this approach in very different settings, from a game made in under three months to live visuals for TV screens.
+
+    ### Where I used it
+
+    - **Snake Space:** tasks, deadlines and bugs lived in shared sheets, each with one clear job. Written lists made problems visible early, while there was still time to react.
+    - **TV Azteca:** a Google Sheet held the standard schedules and backup material, so when something failed or the plan changed at the last minute, we already had a fallback.
+
+    ### How it works
+
+    *Placeholder: describe the sheets themselves (which tabs or sheets you set up, what each one tracks and who updates it). A screenshot of an example sheet would fit well in the gallery.*
+
+    ### What changed for the team
+
+    *Placeholder: what changed for the team after adopting it, for example fewer "what should I do next?" questions, problems caught earlier or faster handoffs.*
   description_es: |
-    *Pendiente: describe el problema que resolvieron las hojas de cálculo y quién las usaba.*
+    Gestión con hojas de cálculo es la forma en que dirijo los proyectos: hojas compartidas donde las tareas, las fechas límite, los bugs y los assets tienen cada uno un lugar claro, para que nadie en el equipo tenga que preguntar qué hacer después ni dónde buscar.
 
-    *Pendiente: cómo funciona el sistema y qué cambió para el equipo después de adoptarlo.*
+    He usado este enfoque en contextos muy distintos, desde un juego hecho en menos de tres meses hasta visuales en vivo para pantallas de televisión.
+
+    ### Dónde lo usé
+
+    - **Snake Space:** las tareas, las fechas límite y los bugs vivían en hojas compartidas, cada una con una función clara. Las listas escritas hacían visibles los problemas a tiempo, cuando todavía había margen para reaccionar.
+    - **TV Azteca:** una hoja de Google guardaba los horarios estándar y el material de respaldo, así que cuando algo fallaba o el plan cambiaba a último momento, ya teníamos una alternativa.
+
+    ### Cómo funciona
+
+    *Pendiente: describe las hojas en sí (qué pestañas u hojas armaste, qué registra cada una y quién la actualiza). Una captura de pantalla de una hoja de ejemplo quedaría bien en la galería.*
+
+    ### Qué cambió para el equipo
+
+    *Pendiente: qué cambió para el equipo después de adoptarlo, por ejemplo menos preguntas de "¿qué sigue?", problemas detectados antes o traspasos más rápidos.*
   gallery: []
   link_url: ""
   link_label: ""
@@ -280,15 +312,13 @@
   description: |
     For TV Azteca I managed and designed visuals for screens more than 20 meters wide. No single program could do that job, so we built a hybrid system that tied together sound, live visuals and planning: Ableton for the music, After Effects to create the designs, Resolume Arena to play them on the screens, and Google Sheets to keep the whole team organized.
 
-    *Placeholder: one or two sentences on what the show or event was, where it took place and what the screens were showing.*
+    The screens showed landscape visuals, advertising spaces and internal messages for the staff. We also worked on events for live shows such as *Venga la Alegría* and *Box Azteca*, as well as other special events.
 
     **Client:** TV Azteca · **Screen size:** 20+ meters wide
 
     ### My role
 
     I was both the manager and a designer. On a screen this size the design and the schedule can't be separated: every effect, resolution and render time has a real cost. Designing alongside the team kept my planning honest, and managing the plan meant I always knew what the designs needed next.
-
-    *Placeholder: your exact responsibilities (who you coordinated, what you delivered to the client) and how you split your time between managing and designing.*
 
     ### The hybrid system
 
@@ -303,29 +333,26 @@
 
     ### How I kept the project organized
 
-    *Placeholder: how you used the sheets, how deadlines and deliveries were tracked, and how designers and screen operators stayed aligned.*
+    Because of how the system worked, organizing the schedules and the notes for the materials we received was fairly dynamic and, when we got advance notice, straightforward. But in television everything is urgent and everything is already running late, so we often had to improvise: put a piece together or rearrange the schedule at the last minute. Keeping a Google Sheet with the standard schedules and backup material in case something failed was a priority and a necessity.
 
     ### Challenges and what I learned
 
-    *Placeholder: working at 20+ meters (resolution, legibility, testing on the real screen), tight timelines, and what you would do differently.*
+    Working under pressure and experimenting with different materials to find out which ones sponsors and collaborators would like most was very useful. I also recommended to production which shots worked better and when certain things could or couldn't be done. That helped me a lot with diplomacy and team management.
 
     ### Team
 
     - **Rodrigo Alberto Galvan Alejandre**: Manager, designer
-
-    *Placeholder: add teammates and their roles.*
+    - **Diego Chavez Chavarria**: Supervisor
   description_es: |
     Para TV Azteca gestioné y diseñé visuales para pantallas de más de 20 metros de ancho. Ningún programa por sí solo podía hacer ese trabajo, así que construimos un sistema híbrido que unía sonido, visuales en vivo y planeación: Ableton para la música, After Effects para crear los diseños, Resolume Arena para reproducirlos en las pantallas y Google Sheets para mantener organizado a todo el equipo.
 
-    *Pendiente: una o dos frases sobre qué fue el show o evento, dónde se realizó y qué mostraban las pantallas.*
+    Las pantallas mostraban visuales de paisaje, espacios publicitarios y mensajes internos para los trabajadores. Además, se realizaban eventos para programas en vivo como *Venga la Alegría*, *Box Azteca* y otros eventos especiales.
 
     **Cliente:** TV Azteca · **Tamaño de pantalla:** más de 20 metros de ancho
 
     ### Mi rol
 
     Fui a la vez el manager y un diseñador. En una pantalla de este tamaño el diseño y el calendario no se pueden separar: cada efecto, resolución y tiempo de render tiene un costo real. Diseñar junto al equipo mantuvo mi planeación honesta, y gestionar el plan significaba que siempre sabía qué necesitaban los diseños a continuación.
-
-    *Pendiente: tus responsabilidades exactas (a quién coordinabas, qué le entregabas al cliente) y cómo repartías tu tiempo entre gestionar y diseñar.*
 
     ### El sistema híbrido
 
@@ -340,17 +367,16 @@
 
     ### Cómo mantuve el proyecto organizado
 
-    *Pendiente: cómo usabas las hojas de cálculo, cómo se seguían las fechas límite y las entregas, y cómo se mantenían alineados los diseñadores y los operadores de pantalla.*
+    Por la naturaleza del sistema, organizar los tiempos y las notas de los materiales que recibíamos era bastante dinámico y, cuando se avisaba con antelación, sencillo. Pero en televisión todo es urgente, todo ya va atrasado, y muchas veces tocaba improvisar: armar un material o reacomodar los horarios a último momento. Por eso, mantener una hoja de Google con los horarios estándar y material de respaldo por si algo fallaba era una prioridad y una necesidad.
 
     ### Retos y lo que aprendí
 
-    *Pendiente: trabajar a más de 20 metros (resolución, legibilidad, pruebas en la pantalla real), calendarios ajustados y qué harías diferente.*
+    Trabajar bajo presión y experimentar con distintos materiales para descubrir cuáles podían gustar más a patrocinadores y colaboradores fue muy útil. También le recomendaba a producción qué tomas funcionaban mejor y cuándo se podían (o no) hacer ciertas cosas, lo que me ayudó mucho con la diplomacia y el manejo de equipos.
 
     ### Equipo
 
     - **Rodrigo Alberto Galvan Alejandre**: Manager, diseñador
-
-    *Pendiente: agrega a tus compañeros y sus roles.*
+    - **Diego Chavez Chavarria**: Supervisor
   gallery:
     - src: "/assets/img/work/tv-azteca-1.jpg"
       caption: "Resolume Arena: Contour Glow turning a live camera feed into a glowing outline"
@@ -358,18 +384,5 @@
     - src: "/assets/img/work/tv-azteca-2.avif"
       caption: "Ableton: MIDI notes in the piano roll"
       caption_es: "Ableton: notas MIDI en el piano roll"
-  link_url: ""
-  link_label: ""
-- title: "Short Film Title"
-  role: "Creature Sculpt"
-  role_es: "Escultura de criaturas"
-  year: "2021"
-  image: ""
-  tools: ["ZBrush"]
-  description: |
-    Placeholder: describe the film and the creature you sculpted.
-  description_es: |
-    *Pendiente: describe el cortometraje y la criatura que esculpiste.*
-  gallery: []
   link_url: ""
   link_label: ""
