@@ -1,16 +1,17 @@
+{% include i18n.html %}
 <header class="nav">
-  <a class="nav__mark" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  <a class="nav__mark" href="{{ home | relative_url }}">{{ site.title }}</a>
 
-  <nav class="nav__menu" aria-label="Section links">
-    <a href="#about">About</a>
-    <a href="#featured">Featured</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+  <nav class="nav__menu" aria-label="{{ t.nav.menu_label }}">
+    <a href="#about">{{ t.nav.about }}</a>
+    <a href="#featured">{{ t.nav.featured }}</a>
+    <a href="#projects">{{ t.nav.projects }}</a>
+    <a href="#experience">{{ t.nav.experience }}</a>
+    <a href="#skills">{{ t.nav.skills }}</a>
+    <a href="#contact">{{ t.nav.contact }}</a>
   </nav>
 
-  <nav class="nav__links" aria-label="Contact and social links">
+  <nav class="nav__links" aria-label="{{ t.nav.links_label }}">
     <a class="nav__email" href="mailto:{{ site.email }}">{{ site.email }}</a>
     <span class="nav__divider" aria-hidden="true"></span>
     <ul class="nav__social">
@@ -18,5 +19,10 @@
       {% if site.social.artstation %}<li><a href="{{ site.social.artstation }}" target="_blank" rel="noopener">ArtStation</a></li>{% endif %}
       {% if site.social.instagram %}<li><a href="{{ site.social.instagram }}" target="_blank" rel="noopener">Instagram</a></li>{% endif %}
     </ul>
+    <span class="nav__divider" aria-hidden="true"></span>
+    <div class="lang-switch" role="group" aria-label="{{ t.nav.language }}">
+      <a href="{{ '/' | relative_url }}" data-lang="en" lang="en" hreflang="en"{% if L == "en" %} aria-current="true"{% endif %}>EN</a>
+      <a href="{{ '/es/' | relative_url }}" data-lang="es" lang="es" hreflang="es"{% if L == "es" %} aria-current="true"{% endif %}>ES</a>
+    </div>
   </nav>
 </header>

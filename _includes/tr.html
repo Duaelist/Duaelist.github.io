@@ -1,0 +1,14 @@
+{%- comment -%}
+  Prints a field in the page language.
+  Usage: {% include tr.html obj=c key="title" %}
+  On the Spanish page it looks for title_es first and falls back to title.
+{%- endcomment -%}
+{%- assign v = nil -%}
+{%- if page.lang == "es" -%}
+  {%- assign k_es = include.key | append: "_es" -%}
+  {%- assign v = include.obj[k_es] -%}
+{%- endif -%}
+{%- if v == nil or v == "" -%}
+  {%- assign v = include.obj[include.key] -%}
+{%- endif -%}
+{{- v -}}

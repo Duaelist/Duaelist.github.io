@@ -1,7 +1,8 @@
+{% include i18n.html %}
 <footer class="footer">
   <div class="footer__mark">
     <strong>{{ site.title }}</strong>
-    <span>{{ site.tagline }}</span>
+    <span>{{ t.tagline | default: site.tagline }}</span>
   </div>
 
   <ul class="footer__links">
@@ -11,5 +12,5 @@
     {% if site.social.instagram %}<li><a href="{{ site.social.instagram }}" target="_blank" rel="noopener">Instagram</a></li>{% endif %}
   </ul>
 
-  <p class="footer__copy">© {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+  <p class="footer__copy">© {{ 'now' | date: "%Y" }} {{ site.title }}. {{ t.footer.rights }}</p>
 </footer>

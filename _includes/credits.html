@@ -1,45 +1,51 @@
+{% include i18n.html %}
 <section class="credits" id="credits">
   <div class="section__head">
-    <h2>Most recent works</h2>
-    <p>Take a Peak on what I have been working on.</p>
+    <h2>{{ t.credits.title }}</h2>
+    <p>{{ t.credits.intro }}</p>
   </div>
 
   <div class="credits__row">
     {% for c in site.data.credits %}
+    {% capture c_title %}{% include tr.html obj=c key="title" %}{% endcapture %}
+    {% capture c_role %}{% include tr.html obj=c key="role" %}{% endcapture %}
+    {% capture c_desc %}{% include tr.html obj=c key="description" %}{% endcapture %}
+    {% capture c_link %}{% include tr.html obj=c key="link_label" %}{% endcapture %}
     <article class="credit-card">
       <div class="credit-card__art"{% if c.image != "" and c.image %} style="background-image:url('{{ c.image | relative_url }}');"{% endif %}>
         {% if c.image == "" or c.image == nil %}<span class="credit-card__placeholder">{{ forloop.index }}</span>{% endif %}
       </div>
-      <h3><button type="button" class="credit-card__open" data-credit="{{ forloop.index0 }}" aria-haspopup="dialog">{{ c.title }}</button></h3>
-      <p class="meta">{{ c.role }} · {{ c.year }}</p>
+      <h3><button type="button" class="credit-card__open" data-credit="{{ forloop.index0 }}" aria-haspopup="dialog">{{ c_title }}</button></h3>
+      <p class="meta">{{ c_role }} · {{ c.year }}</p>
 
       <template id="credit-detail-{{ forloop.index0 }}">
         {% assign hero = c.banner | default: c.image %}
         {% if hero != "" and hero %}
-        <img class="credit-modal__media" src="{{ hero | relative_url }}" alt="{{ c.title }}">
+        <img class="credit-modal__media" src="{{ hero | relative_url }}" alt="{{ c_title }}">
         {% endif %}
         <div class="credit-modal__body">
-          <p class="meta">{{ c.role }} · {{ c.year }}</p>
-          <h2 id="credit-modal-title">{{ c.title }}</h2>
+          <p class="meta">{{ c_role }} · {{ c.year }}</p>
+          <h2 id="credit-modal-title">{{ c_title }}</h2>
           {% if c.tools and c.tools.size > 0 %}
-          <ul class="chips">{% for t in c.tools %}<li>{{ t }}</li>{% endfor %}</ul>
+          <ul class="chips">{% for tool in c.tools %}<li>{{ tool }}</li>{% endfor %}</ul>
           {% endif %}
-          {% if c.description %}
-          <div class="credit-modal__text">{{ c.description | markdownify }}</div>
+          {% if c_desc != "" %}
+          <div class="credit-modal__text">{{ c_desc | markdownify }}</div>
           {% endif %}
           {% if c.gallery and c.gallery.size > 0 %}
           <div class="credit-modal__gallery">
             {% for g in c.gallery %}
             {% assign src = g.src | default: g %}
+            {% capture g_cap %}{% include tr.html obj=g key="caption" %}{% endcapture %}
             <figure{% if g.wide %} class="is-wide"{% endif %}>
-              <img src="{{ src | relative_url }}" alt="{{ g.caption | default: c.title }}" loading="lazy">
-              {% if g.caption %}<figcaption>{{ g.caption }}</figcaption>{% endif %}
+              <img src="{{ src | relative_url }}" alt="{% if g_cap != "" %}{{ g_cap }}{% else %}{{ c_title }}{% endif %}" loading="lazy">
+              {% if g_cap != "" %}<figcaption>{{ g_cap }}</figcaption>{% endif %}
             </figure>
             {% endfor %}
           </div>
           {% endif %}
           {% if c.link_url != "" and c.link_url %}
-          <a class="btn btn--primary" href="{{ c.link_url }}" target="_blank" rel="noopener">{{ c.link_label | default: "View project" }} ↗</a>
+          <a class="btn btn--primary" href="{{ c.link_url }}" target="_blank" rel="noopener">{% if c_link != "" %}{{ c_link }}{% else %}{{ t.view_project }}{% endif %} ↗</a>
           {% endif %}
         </div>
       </template>
@@ -49,7 +55,7 @@
 
   <dialog class="credit-modal" id="credit-modal" aria-labelledby="credit-modal-title">
     <div class="credit-modal__panel">
-      <button type="button" class="credit-modal__close" aria-label="Close details">×</button>
+      <button type="button" class="credit-modal__close" aria-label="{{ t.close_details }}">×</button>
       <div class="credit-modal__content"></div>
     </div>
   </dialog>

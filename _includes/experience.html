@@ -1,20 +1,21 @@
+{% include i18n.html %}
 <section class="experience" id="experience">
   <div class="section__head">
-    <p class="eyebrow">Experience</p>
-    <h2>Where I've worked &amp; studied</h2>
+    <p class="eyebrow">{{ t.experience.eyebrow }}</p>
+    <h2>{{ t.experience.title }}</h2>
   </div>
 
   <ol class="timeline">
     {% for e in site.data.experience %}
     <li class="timeline__row">
-      <p class="timeline__date">{{ e.start }} — {{ e.end }}</p>
+      <p class="timeline__date">{{ e.start }} — {% if e.end == "Present" %}{{ t.present }}{% else %}{{ e.end }}{% endif %}</p>
       <div class="timeline__content">
-        <h3>{{ e.role }}</h3>
-        <p class="meta">{{ e.org }}</p>
-        <p class="timeline__desc">{{ e.description }}</p>
+        <h3>{% include tr.html obj=e key="role" %}</h3>
+        <p class="meta">{% include tr.html obj=e key="org" %}</p>
+        <p class="timeline__desc">{% include tr.html obj=e key="description" %}</p>
         {% if e.tags.size > 0 %}
         <ul class="chips">
-          {% for t in e.tags %}<li>{{ t }}</li>{% endfor %}
+          {% for tag in e.tags %}<li>{{ tag }}</li>{% endfor %}
         </ul>
         {% endif %}
       </div>

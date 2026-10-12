@@ -1,11 +1,12 @@
+{% include i18n.html %}
 <section class="hero" id="about">
   <div class="hero__text">
     <h1>{{ site.title }}</h1>
-    <p class="hero__role">{{ site.tagline }}</p>
-    <p class="hero__meta">Modeling · Texturing · Lookdev · 3D pipelines</p>
+    <p class="hero__role">{{ t.tagline | default: site.tagline }}</p>
+    <p class="hero__meta">{{ t.hero.meta }}</p>
     <div class="hero__actions">
-      <a class="btn btn--primary" href="mailto:{{ site.email }}">{{ site.cta_label }}</a>
-      <a class="btn btn--ghost" href="#work">View the work</a>
+      <a class="btn btn--primary" href="mailto:{{ site.email }}">{{ t.cta_label | default: site.cta_label }}</a>
+      <a class="btn btn--ghost" href="#work">{{ t.hero.view_work }}</a>
     </div>
   </div>
 
@@ -22,6 +23,6 @@
         <span class="tick tick--br"></span>
       </div>
     </div>
-    <p class="viewport__caption">viewport_01 — blockout pass</p>
+    <p class="viewport__caption">{{ t.hero.caption }}</p>
   </div>
 </section>

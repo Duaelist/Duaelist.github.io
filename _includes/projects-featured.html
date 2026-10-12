@@ -1,8 +1,9 @@
+{% include i18n.html %}
 <section class="featured" id="featured">
   <div class="section__head">
-    <p class="eyebrow">Featured projects</p>
-    <h2>Selected work</h2>
-    <p>The projects worth pointing to first.</p>
+    <p class="eyebrow">{{ t.featured.eyebrow }}</p>
+    <h2>{{ t.featured.title }}</h2>
+    <p>{{ t.featured.intro }}</p>
   </div>
 
   <div class="featured__grid">
@@ -13,13 +14,13 @@
         {% if p.image == "" %}<span class="project-card__placeholder">{{ p.tag }}</span>{% endif %}
       </div>
       <div class="project-card__body">
-        <p class="meta">{{ p.category }}</p>
-        <h3>{{ p.title }}</h3>
-        <p class="project-card__desc">{{ p.description }}</p>
+        <p class="meta">{% include tr.html obj=p key="category" %}</p>
+        <h3>{% include tr.html obj=p key="title" %}</h3>
+        <p class="project-card__desc">{% include tr.html obj=p key="description" %}</p>
         <ul class="chips">
           {% for s in p.stack %}<li>{{ s }}</li>{% endfor %}
         </ul>
-        {% if p.link_url != "" %}<a class="project-card__link" href="{{ p.link_url }}" target="_blank" rel="noopener">{{ p.link_label }} →</a>{% endif %}
+        {% if p.link_url != "" %}<a class="project-card__link" href="{{ p.link_url }}" target="_blank" rel="noopener">{% include tr.html obj=p key="link_label" %} →</a>{% endif %}
       </div>
     </article>
     {% endif %}

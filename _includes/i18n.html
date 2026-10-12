@@ -1,0 +1,8 @@
+{%- comment -%}
+  Sets L (language code), t (interface strings) and home (home URL path)
+  for the page being built. Include it at the top of any file that needs them.
+{%- endcomment -%}
+{%- assign L = page.lang | default: "en" -%}
+{%- assign t = site.data.i18n[L] -%}
+{%- assign home = "/" -%}
+{%- if L == "es" -%}{%- assign home = "/es/" -%}{%- endif -%}
