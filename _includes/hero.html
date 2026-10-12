@@ -39,11 +39,11 @@
   .puzzle__win-moves { margin: .5rem 0 .4rem; color: rgba(255, 255, 255, .8); }
   .puzzle__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-  /* Win animation: the dim fades in, the three chunks pop one after another, then the moves + button rise in. */
+  /* Win animation: the dim fades in, all the text pops in together, then the moves + button rise in. */
   .puzzle__win.is-playing { animation: puzzle-dim .3s ease-out backwards; }
   .puzzle__win.is-playing .puzzle__chunk { animation: puzzle-pop .5s cubic-bezier(.2, .9, .3, 1.25) backwards; }
   .puzzle__win.is-playing .puzzle__win-moves,
-  .puzzle__win.is-playing .puzzle__again { animation: puzzle-rise .35s ease-out 1.05s backwards; }
+  .puzzle__win.is-playing .puzzle__again { animation: puzzle-rise .35s ease-out .65s backwards; }
   @keyframes puzzle-dim { from { background: rgba(24, 36, 64, 0); } }
   @keyframes puzzle-pop {
     0%   { opacity: 0; transform: scale(.3) translateY(14px) rotate(-6deg); }
@@ -86,23 +86,25 @@
   var T = ES ? {
     hint: 'Arrastra los puntos por los rieles hasta que ninguna línea se cruce.',
     aria: 'Rompecabezas: arrastra los puntos por los rieles hasta que ninguna línea se cruce.',
-    level: 'Nivel', crossing: 'Líneas cruzadas', reset: 'Reiniciar',
+    crossing: 'Líneas cruzadas', reset: 'Reiniciar nivel',
+    resetTip: 'Vuelve a colocar los puntos como estaban al empezar este nivel',
     chunks: ['Sip,', 'Eso es', 'Game Design'], winFull: 'Sip, Eso es Game Design',
     move: 'movimiento', moves: 'movimientos',
     next: 'Siguiente nivel', replay: 'Jugar de nuevo'
   } : {
     hint: 'Drag the points along the rails until no line crosses another.',
     aria: 'Puzzle: drag the points along the rails until no line crosses another.',
-    level: 'Level', crossing: 'Lines crossing', reset: 'Reset',
+    crossing: 'Lines crossing', reset: 'Restart level',
+    resetTip: 'Put the dots back where they started in this level',
     chunks: ['Yep!', "That's", 'Game Design'], winFull: "Yep! That's Game Design",
     move: 'move', moves: 'moves',
     next: 'Next puzzle', replay: 'Play again'
   };
 
   // ---- Board constants (same numbers as the Unity project) ----
-  var COLS = 3, ROWS = 3;
-  var SP = 1.8;            // cellSpacing: distance between intersections
-  var RAIL = 0.5;          // railThickness
+  var COLS = 3, ROWS = 3;  // grid size (set by each level)
+  var SP = 1.8;            // distance between intersections (set by each level)
+  var RAIL = 0.5;          // rail thickness (set by each level)
   var MINSEP = 0.85;       // minPointSeparation
   var STEP = 0.02;         // stepSize
   var MAXTRAVEL = 4;       // maxTravelPerFrame
@@ -118,13 +120,51 @@
     point: '#FFFFFF', drag: '#FFEB8C'
   };
 
-  // Points A..E and the lines joining them (indices into the points array).
-  var LINES = [[4, 2], [2, 3], [4, 0], [0, 1], [1, 2]];
-  // Start layouts, [col,row] for A..E. Each one is verified solvable.
+  // Each level sets its own grid, dot start positions [col,row] and the lines joining
+  // them (pairs of dot indexes). Every level is verified solvable; "min" is a proven
+  // lower bound on the moves a perfect player needs.
+  var LINES = [];
   var LEVELS = [
-    [[0, 0], [1, 1], [0, 2], [1, 0], [2, 0]],
-    [[0, 0], [1, 2], [0, 2], [1, 0], [2, 2]],
-    [[0, 0], [1, 2], [0, 2], [2, 0], [2, 2]]
+    // Level 1: 3x3 grid, 5 dots, 5 lines, min 3 moves
+    { cols: 3, rows: 3, sp: 1.8, rail: 0.5,
+      pts: [[0,0],[1,1],[0,2],[1,0],[2,0]],
+      lines: [[4,2],[2,3],[4,0],[0,1],[1,2]] },
+    // Level 2: 3x3 grid, 5 dots, 5 lines, min 4 moves
+    { cols: 3, rows: 3, sp: 1.8, rail: 0.5,
+      pts: [[0,0],[1,2],[0,2],[1,0],[2,2]],
+      lines: [[4,2],[2,3],[4,0],[0,1],[1,2]] },
+    // Level 3: 3x3 grid, 5 dots, 5 lines, min 5 moves
+    { cols: 3, rows: 3, sp: 1.8, rail: 0.5,
+      pts: [[0,0],[1,2],[0,2],[2,0],[2,2]],
+      lines: [[4,2],[2,3],[4,0],[0,1],[1,2]] },
+    // Level 4: 3x3 grid, 6 dots, 9 lines, min 6 moves
+    { cols: 3, rows: 3, sp: 1.8, rail: 0.5,
+      pts: [[1,0],[2,0],[2,2],[1,2],[1,1],[2,1]],
+      lines: [[0,2],[3,5],[1,2],[0,5],[0,4],[2,5],[1,3],[0,3],[2,4]] },
+    // Level 5: 3x3 grid, 6 dots, 10 lines, min 8 moves
+    { cols: 3, rows: 3, sp: 1.8, rail: 0.5,
+      pts: [[0,0],[2,0],[0,2],[0,1],[1,1],[1,0]],
+      lines: [[0,2],[2,5],[1,2],[3,4],[0,3],[0,1],[0,5],[0,4],[2,3],[1,3]] },
+    // Level 6: 4x4 grid, 7 dots, 11 lines, min 6 moves
+    { cols: 4, rows: 4, sp: 1.2, rail: 0.4,
+      pts: [[3,1],[2,2],[0,2],[2,1],[0,1],[3,3],[3,0]],
+      lines: [[0,1],[3,5],[1,4],[5,6],[0,6],[2,6],[0,4],[0,5],[1,6],[3,6],[2,3]] },
+    // Level 7: 4x4 grid, 7 dots, 13 lines, min 7 moves
+    { cols: 4, rows: 4, sp: 1.2, rail: 0.4,
+      pts: [[3,2],[3,3],[2,0],[2,1],[1,1],[0,3],[1,2]],
+      lines: [[0,4],[0,5],[0,2],[0,3],[1,6],[1,4],[3,5],[2,4],[2,5],[2,3],[4,5],[4,6],[2,6]] },
+    // Level 8: 4x4 grid, 8 dots, 14 lines, min 7 moves
+    { cols: 4, rows: 4, sp: 1.2, rail: 0.4,
+      pts: [[0,3],[3,1],[0,2],[3,2],[1,3],[1,0],[2,3],[1,1]],
+      lines: [[0,5],[1,7],[1,6],[0,2],[2,7],[2,4],[3,5],[1,2],[0,1],[0,4],[1,5],[6,7],[1,4],[0,3]] },
+    // Level 9: 4x4 grid, 8 dots, 16 lines, min 8 moves
+    { cols: 4, rows: 4, sp: 1.2, rail: 0.4,
+      pts: [[0,1],[0,3],[1,3],[3,0],[1,1],[0,0],[3,3],[2,3]],
+      lines: [[0,6],[4,7],[2,6],[3,4],[1,5],[4,5],[0,4],[0,2],[5,7],[1,4],[2,4],[1,3],[3,5],[2,7],[6,7],[1,7]] },
+    // Level 10: 4x4 grid, 9 dots, 17 lines, min 9 moves
+    { cols: 4, rows: 4, sp: 1.2, rail: 0.4,
+      pts: [[2,2],[1,1],[3,3],[1,0],[3,1],[2,1],[0,3],[0,1],[2,0]],
+      lines: [[1,6],[2,5],[2,3],[5,6],[4,6],[4,8],[2,7],[0,7],[3,8],[0,2],[3,7],[3,5],[1,5],[1,2],[7,8],[5,8],[4,5]] }
   ];
 
   var level = 0, points = [], moves = 0, complete = false;
@@ -251,7 +291,7 @@
 
   // ---- UI state ----
   function updateStatus() {
-    statusEl.textContent = T.level + ' ' + (level + 1) + ' / ' + LEVELS.length + ' · ' + T.crossing + ': ' + crossCount;
+    statusEl.textContent = T.crossing + ': ' + crossCount;
   }
   function showWin() {
     complete = true;
@@ -265,7 +305,6 @@
       c.className = 'puzzle__chunk' + (i === 0 ? ' puzzle__chunk--lead' : '') + (i === T.chunks.length - 1 ? ' puzzle__chunk--accent' : '');
       c.textContent = text;
       c.setAttribute('aria-hidden', 'true');
-      c.style.animationDelay = (0.1 + i * 0.18) + 's';
       winTitle.appendChild(c);
     });
     winMoves.textContent = moves + ' ' + (moves === 1 ? T.move : T.moves);
@@ -280,8 +319,10 @@
     level = i; moves = 0; complete = false; drag = null; hover = false;
     winBox.hidden = true;
     winBox.classList.remove('is-playing');
-    points = LEVELS[i].map(function (n, idx) {
-      return { id: 'ABCDE'.charAt(idx), a: { c: n[0], r: n[1] }, b: { c: n[0], r: n[1] }, d: 0 };
+    var cfg = LEVELS[i];
+    COLS = cfg.cols; ROWS = cfg.rows; SP = cfg.sp; RAIL = cfg.rail; LINES = cfg.lines;
+    points = cfg.pts.map(function (n, idx) {
+      return { id: idx, a: { c: n[0], r: n[1] }, b: { c: n[0], r: n[1] }, d: 0 };
     });
     evaluate(); updateStatus(); draw();
   }
@@ -335,7 +376,7 @@
     };
   }
   function nearest(w) {
-    var best = null, bd = HIT;
+    var best = null, bd = Math.min(HIT, SP / 2);
     for (var i = 0; i < points.length; i++) {
       var d = dist(w, railPos(points[i]));
       if (d <= bd) { bd = d; best = points[i]; }
@@ -438,6 +479,7 @@
   canvas.setAttribute('aria-label', T.aria);
   hintEl.textContent = T.hint;
   resetBtn.textContent = T.reset;
+  resetBtn.setAttribute('title', T.resetTip);
   loadLevel(0);
   resize();
 })();
