@@ -236,6 +236,7 @@
     winBox.hidden = false;
   }
   function loadLevel(i) {
+    cancelSnap();
     level = i; moves = 0; complete = false; drag = null; hover = false;
     winBox.hidden = true;
     points = LEVELS[i].map(function (n, idx) {
@@ -300,15 +301,66 @@
     }
     return best;
   }
+  // ---- Snapping: a point always comes to rest on an intersection ----
+  var SNAP_MS = 120;       // length of the snap animation
+  var snap = null, snapRaf = 0;
+  var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  function occupied(node, mover) {
+    for (var i = 0; i < points.length; i++) {
+      var o = points[i];
+      if (o !== mover && onNode(o) && o.a.c === node.c && o.a.r === node.r) return true;
+    }
+    return false;
+  }
+  // Where a point left mid-rail settles: the closer end of its rail, or the
+  // other end (the intersection it just came from) if the closer one is taken.
+  function snapTarget(p) {
+    if (onNode(p)) return null;
+    var toB = p.d > SP / 2;
+    if (occupied(toB ? p.b : p.a, p)) toB = !toB;
+    return { toB: toB, node: toB ? p.b : p.a };
+  }
+  function settle(s) {
+    snap = null;
+    s.p.a = { c: s.node.c, r: s.node.r };
+    s.p.b = { c: s.node.c, r: s.node.r };
+    s.p.d = 0;
+    evaluate(); updateStatus(); draw();
+    if (crossCount === 0 && !complete) showWin();
+  }
+  function snapFrame(now) {
+    if (!snap) return;
+    var k = Math.max(0, Math.min(1, (now - snap.t0) / SNAP_MS)), e = 1 - Math.pow(1 - k, 3);
+    snap.p.d = snap.from + (snap.to - snap.from) * e;
+    evaluate(); updateStatus(); draw();
+    if (k < 1) snapRaf = requestAnimationFrame(snapFrame); else settle(snap);
+  }
+  function startSnap(p, t) {
+    snap = { p: p, node: t.node, from: p.d, to: t.toB ? SP : 0, t0: performance.now() };
+    if (reduceMotion) { settle(snap); return; }
+    snapRaf = requestAnimationFrame(snapFrame);
+  }
+  function cancelSnap() {
+    if (snapRaf) cancelAnimationFrame(snapRaf);
+    snapRaf = 0; snap = null;
+  }
+
   function endDrag() {
     if (!drag) return;
-    if (dist(railPos(drag), dragStart) > 0.05) moves++;
+    var p = drag, t = snapTarget(p);
     drag = null;
     canvas.style.cursor = 'default';
+    // A move only counts if the point ends up on a different intersection.
+    var rest = t ? nodePos(t.node.c, t.node.r) : railPos(p);
+    if (dist(rest, dragStart) > 0.05) moves++;
+    if (t) { startSnap(p, t); return; }
     updateStatus(); draw();
+    if (crossCount === 0 && !complete) showWin();
   }
 
   canvas.addEventListener('pointerdown', function (e) {
+    if (snap) { var s = snap; cancelSnap(); settle(s); }   // let an unfinished snap land first
     if (complete) return;
     var p = nearest(worldOf(e));
     if (!p) return;
@@ -327,7 +379,6 @@
     }
     slide(drag, w);
     evaluate(); updateStatus(); draw();
-    if (crossCount === 0) { endDrag(); showWin(); }
   });
   // Touch: swipes that start off a point scroll the page as normal. Only a
   // finger that lands on a point blocks scrolling, so it can drag the point.
