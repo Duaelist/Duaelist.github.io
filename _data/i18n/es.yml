@@ -12,6 +12,7 @@ nav:
   links_label: "Enlaces de contacto y redes"
   language: "Idioma"
   about: "Acerca de"
+  credits: "Trabajos"
   featured: "Destacados"
   projects: "Proyectos"
   experience: "Experiencia"
@@ -21,7 +22,7 @@ hero:
   meta: "Gestión de proyectos · QA · Diseño de videojuegos · Visuales en vivo"
   view_work: "Ver el trabajo"
 credits:
-  title: "Trabajos más recientes"
+  title: "Trabajos"
   intro: "Echa un vistazo a lo que he estado haciendo."
 featured:
   eyebrow: "Proyectos destacados"

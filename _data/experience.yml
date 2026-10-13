@@ -9,7 +9,9 @@
   role: "Quest Designer"
   org: "Akuma Studio · Mexico City"
   org_es: "Akuma Studio · Ciudad de México"
-  tags: []
+  description: "I integrate the script into the game and make sure the quests work fully in-game, through trial and error and QA testing. The game has not been released yet."
+  description_es: "Integro el guion en el juego y hago que las misiones funcionen por completo dentro de él, mediante prueba y error y pruebas de QA. El juego aún no ha sido lanzado."
+  tags: ["Quest Design", "QA"]
 
 - start: "11/2025"
   end: "04/2026"
@@ -19,7 +21,6 @@
   org_es: "Vancouver Film School"
   tags: []
 
-# TODO: replace the placeholder dates below with the real ones.
 - start: "04/2025"
   end: "04/2026"
   role: "Game Design Diploma Course"
@@ -42,7 +43,9 @@
   role_es: "QA / Diseñador de juegos"
   org: "Pixellity · Greater Mexico City"
   org_es: "Pixellity · Área metropolitana de Ciudad de México"
-  tags: []
+  description: "QA for casino games. I implemented a time-based ticketing system to estimate how long it would take a player to spend their money and how many times they won within a given session length, tracking everything in an Excel sheet."
+  description_es: "QA en juegos de casino. Implementé un sistema de tickets basado en tiempo para calcular en cuánto tiempo un usuario gastaría su dinero y cuántas veces ganaba dentro de una sesión de tiempo determinado, llevando el seguimiento en una hoja de Excel."
+  tags: ["QA", "Excel"]
 
 - start: "03/2020"
   end: "07/2020"

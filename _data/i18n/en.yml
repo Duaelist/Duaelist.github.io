@@ -10,6 +10,7 @@ nav:
   links_label: "Contact and social links"
   language: "Language"
   about: "About"
+  credits: "Works"
   featured: "Featured"
   projects: "Projects"
   experience: "Experience"
@@ -19,7 +20,7 @@ hero:
   meta: "Project Management · QA · Game Design · Live Visuals"
   view_work: "View the work"
 credits:
-  title: "Most recent works"
+  title: "Works"
   intro: "Take a Peek at what I have been working on."
 featured:
   eyebrow: "Featured projects"
