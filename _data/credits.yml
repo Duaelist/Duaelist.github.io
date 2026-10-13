@@ -49,7 +49,7 @@
 
     Our tools were Google Sheets, JIRA and Hack'n Plan, and each platform had its own strengths.
 
-    *Placeholder: one line on what each platform was best for (what you used Sheets for, what you used JIRA for, what you used Hack'n Plan for).*
+    Google Sheets is where I kept everything organized, using specific sheets for each purpose. JIRA was mainly for tracking bugs, and we used it mostly for art bugs. Hack'n Plan worked better for planning programming tasks, since it was easier for our programmer to track them there.
 
     I wrote more about this way of working in my **Managing through Sheets** project.
 
@@ -97,7 +97,7 @@
 
     Nuestras herramientas fueron Google Sheets, JIRA y Hack'n Plan, y cada plataforma tenía sus propias fortalezas.
 
-    *Pendiente: una línea sobre para qué servía mejor cada plataforma (para qué usaste Sheets, para qué JIRA y para qué Hack'n Plan).*
+    Google Sheets fue donde mantuve todo organizado, usando hojas específicas para cada propósito. JIRA se usó principalmente para el seguimiento de bugs, sobre todo bugs de arte. Hack'n Plan funcionó mejor para planear las tareas de programación, ya que le resultaba más fácil a nuestro programador darles seguimiento ahí.
 
     Escribí más sobre esta forma de trabajar en mi proyecto **Gestión con hojas de cálculo**.
 
@@ -160,7 +160,7 @@
   description: |
     Super Hot Alike is a first-person prototype made in the spirit of Superhot, the game where time only moves when you move. It was built by a team of two, and my focus was the level and game design: a warehouse of shelves, pallets and barrels with enemies placed around it.
 
-    *Placeholder: one or two sentences in your own words. What you wanted to explore and how close it stays to the original.*
+    I wanted to explore how to build a full time-manipulation system like Superhot's from the ground up, and how that system changes the way the player moves and thinks. It was more a practice of my abilities as a programmer than an attempt to remake the original.
 
     **Status:** Prototype · **Team size:** 2 · **Engine:** Unreal Engine (Blueprints)
 
@@ -174,23 +174,21 @@
 
     The project started from a Blueprint skeleton and a set of props from GamedevEnabled that we found online, so we could spend our time on the design instead of rebuilding the basics.
 
-    *Placeholder: say what you and Manuel built or changed on top of that base, and how the two of you kept in sync.*
-
     ### Level and game design
 
     In a game where time only moves when you move, every encounter becomes a small puzzle about position and timing. That makes level design a big part of the game, not a backdrop for it. It was also the biggest part of my work here, followed by game design.
 
     The images below show the process: a white-box blockout of the warehouse, a top-down view of the level layout, and enemies placed inside the space.
 
-    *Placeholder: describe how the layout guides the player, how you decided where each enemy goes, and what you changed after playtesting.*
+    The layout and enemy placement were inspired mainly by Halo 2 and the way its enemies were positioned. It was never just about shooting: you had to adapt your strategy depending on which enemy you were facing.
 
     ### Programming
 
-    *Placeholder: the systems you worked on. For example how time slows and speeds up, how enemies and projectiles behave, and how the player controls feel.*
+    This was one of my first experiences using Blueprints in depth. I learned how to work with delta time, explored Unreal's C++ files, and built a complete system entirely with Blueprints.
 
     ### Challenges and what I learned
 
-    *Placeholder: your personal thoughts. What was hard, what you would do differently, what you are proud of.*
+    The main challenge was growing my programming skills while I started exploring Blueprints and level design in depth.
 
     ### Team
 
@@ -201,7 +199,7 @@
   description_es: |
     Super Hot Alike es un prototipo en primera persona hecho con el espíritu de Superhot, el juego donde el tiempo solo avanza cuando tú te mueves. Lo hicimos un equipo de dos personas, y mi enfoque fue el diseño de niveles y de juego: una bodega con estantes, tarimas y barriles, con enemigos colocados por todo el espacio.
 
-    *Pendiente: una o dos frases en tus propias palabras. Qué querías explorar y qué tanto se parece al original.*
+    Quise explorar cómo construir desde cero un sistema completo de manipulación del tiempo como el de Superhot, y cómo eso cambia la forma en que el jugador se mueve y piensa. Fue más una práctica de mis habilidades como programador que un intento de recrear el original.
 
     **Estado:** Prototipo · **Tamaño del equipo:** 2 · **Motor:** Unreal Engine (Blueprints)
 
@@ -215,23 +213,21 @@
 
     El proyecto partió de un esqueleto de Blueprints y un conjunto de props de GamedevEnabled que encontramos en internet, para poder dedicar nuestro tiempo al diseño en lugar de reconstruir lo básico.
 
-    *Pendiente: explica qué construyeron o cambiaron Manuel y tú sobre esa base, y cómo se mantenían sincronizados.*
-
     ### Diseño de niveles y de juego
 
     En un juego donde el tiempo solo avanza cuando te mueves, cada encuentro se convierte en un pequeño rompecabezas de posición y tiempo. Por eso el diseño de niveles es una parte central del juego y no solo un fondo. También fue la parte más grande de mi trabajo aquí, seguida del diseño de juego.
 
     Las imágenes de abajo muestran el proceso: un blockout en blanco de la bodega, una vista cenital de la distribución del nivel y enemigos colocados dentro del espacio.
 
-    *Pendiente: describe cómo la distribución guía al jugador, cómo decidiste dónde va cada enemigo y qué cambiaste después de las pruebas de juego.*
+    La distribución y la colocación de enemigos se inspiraron principalmente en Halo 2 y en cómo se posicionaban sus enemigos. No se trataba solo de disparar: había que adaptar la estrategia según el enemigo al que te enfrentabas.
 
     ### Programación
 
-    *Pendiente: los sistemas en los que trabajaste. Por ejemplo, cómo el tiempo se ralentiza y se acelera, cómo se comportan los enemigos y los proyectiles, y cómo se sienten los controles del jugador.*
+    Esta fue una de mis primeras experiencias usando Blueprints a fondo. Aprendí a trabajar con delta time, exploré los archivos de C++ de Unreal y construí un sistema completo usando únicamente Blueprints.
 
     ### Retos y lo que aprendí
 
-    *Pendiente: tus reflexiones personales. Qué fue difícil, qué harías diferente y de qué estás orgulloso.*
+    El reto principal fue hacer crecer mis habilidades de programación mientras empezaba a explorar a fondo los Blueprints y el diseño de niveles.
 
     ### Equipo
 
@@ -276,11 +272,15 @@
 
     ### How it works
 
-    *Placeholder: describe the sheets themselves (which tabs or sheets you set up, what each one tracks and who updates it). A screenshot of an example sheet would fit well in the gallery.*
+    I used Google Sheets to program the schedule for many of the tasks. It is very useful in the planning phase, and even as you keep adding or redoing things, you have to keep the sheet updated in order to maintain it.
+
+    See an example of the schedule sheet in the middle of a project: <a href="https://docs.google.com/spreadsheets/d/1JU70l2ksYluak4jifx0APK0al7Tf3W3f7RVEC_1Yk3w/edit?usp=sharing" target="_blank" rel="noopener">Project schedule sheet ↗</a>
+
+    Sheets can also be used to speculate about possible money deals with certain games. See an example of expenses and salaries: <a href="https://docs.google.com/spreadsheets/d/17dhTehstNnhdxfJJJEaQyMBwwrxyDQbcgAg4xjRj1Kg/edit?usp=sharing" target="_blank" rel="noopener">Expenses and salaries sheet ↗</a>
 
     ### What changed for the team
 
-    *Placeholder: what changed for the team after adopting it, for example fewer "what should I do next?" questions, problems caught earlier or faster handoffs.*
+    Taking the management so seriously had two effects. The first was a little motivation loss, because everything seemed to be controlled and some team members even felt watched. At the same time, making the management so professional made everybody feel we were working towards something bigger, something that went far beyond our expectations, and for that I am happy.
   description_es: |
     Gestión con hojas de cálculo es la forma en que dirijo los proyectos: hojas compartidas donde las tareas, las fechas límite, los bugs y los assets tienen cada uno un lugar claro, para que nadie en el equipo tenga que preguntar qué hacer después ni dónde buscar.
 
@@ -293,11 +293,15 @@
 
     ### Cómo funciona
 
-    *Pendiente: describe las hojas en sí (qué pestañas u hojas armaste, qué registra cada una y quién la actualiza). Una captura de pantalla de una hoja de ejemplo quedaría bien en la galería.*
+    Usé Google Sheets para programar el calendario de muchas de las tareas. Es muy útil en la fase de planeación, y aunque sigas agregando o rehaciendo cosas, tienes que mantener la hoja actualizada para poder sostenerla.
+
+    Mira un ejemplo de la hoja del calendario a mitad de un proyecto: <a href="https://docs.google.com/spreadsheets/d/1JU70l2ksYluak4jifx0APK0al7Tf3W3f7RVEC_1Yk3w/edit?usp=sharing" target="_blank" rel="noopener">Hoja del calendario del proyecto ↗</a>
+
+    Las hojas también sirven para especular sobre posibles acuerdos económicos con ciertos juegos. Mira un ejemplo de gastos y salarios: <a href="https://docs.google.com/spreadsheets/d/17dhTehstNnhdxfJJJEaQyMBwwrxyDQbcgAg4xjRj1Kg/edit?usp=sharing" target="_blank" rel="noopener">Hoja de gastos y salarios ↗</a>
 
     ### Qué cambió para el equipo
 
-    *Pendiente: qué cambió para el equipo después de adoptarlo, por ejemplo menos preguntas de "¿qué sigue?", problemas detectados antes o traspasos más rápidos.*
+    Tomar la gestión tan en serio tuvo dos efectos. El primero fue una pequeña pérdida de motivación, porque todo parecía estar controlado y algunos miembros del equipo incluso se sintieron vigilados. Al mismo tiempo, hacer la gestión tan profesional hizo que todos sintiéramos que trabajábamos hacia algo más grande, algo que superó por mucho nuestras expectativas, y por eso estoy contento.
   gallery: []
   link_url: ""
   link_label: ""
@@ -329,7 +333,7 @@
     - **Ableton:** the sound. MIDI notes drive the music, and an LFO moves the drive of a saturator in time with the tempo, so the sound pulses with the beat.
     - **Google Sheets:** the plan behind it all, with tasks, deadlines and assets in one place.
 
-    *Placeholder: how Ableton and Resolume were connected (MIDI, audio, something else?) and how files moved from After Effects into Resolume.*
+    Using a MIDI reader, we assigned notes in Resolume that Ableton played to trigger the requested material. The order of these triggers was very delicate, and I can't explain every intricacy, but it was incredible. Needless to say, this huge system was hard to maintain and needed daily revisions and tweaks.
 
     ### How I kept the project organized
 
@@ -363,7 +367,7 @@
     - **Ableton:** el sonido. Las notas MIDI llevan la música, y un LFO mueve el drive de un saturador al ritmo del tempo, de modo que el sonido pulsa con el beat.
     - **Google Sheets:** el plan detrás de todo, con tareas, fechas límite y assets en un solo lugar.
 
-    *Pendiente: cómo se conectaron Ableton y Resolume (¿MIDI, audio, otra cosa?) y cómo pasaban los archivos de After Effects a Resolume.*
+    Con un lector MIDI asignamos notas en Resolume que Ableton tocaba para disparar el material solicitado. El orden de estos disparos era muy delicado y no puedo explicar cada detalle, pero fue increíble. Ni qué decir que este enorme sistema era difícil de mantener y necesitaba revisiones y ajustes diarios.
 
     ### Cómo mantuve el proyecto organizado
 

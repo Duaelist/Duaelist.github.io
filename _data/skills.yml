@@ -1,10 +1,21 @@
 # One entry per skills group. `items` renders as a row of chips.
+# Spanish: add category_es (items are shown as written in both languages,
+# so they are tool names and terms that are used in English in both).
+- category: "Project Management"
+  category_es: "Gestión de proyectos"
+  items: ["Google Sheets", "JIRA", "Hack'n Plan", "Trello", "Scheduling & Planning"]
+- category: "QA"
+  category_es: "QA"
+  items: ["Bug Tracking", "QA Testing", "JIRA"]
+- category: "Game Design"
+  category_es: "Diseño de videojuegos"
+  items: ["Quest Design", "Level Design", "Game Design", "Blueprints"]
+- category: "Live Visuals & Multimedia"
+  category_es: "Visuales en vivo y multimedia"
+  items: ["Resolume Arena", "Ableton", "After Effects"]
 - category: "Engines & Graphics"
   category_es: "Motores y gráficos"
-  items: ["Unity", "Unreal Engine 5", "ShaderGraph", "Blender"]
-- category: "Languages"
-  category_es: "Lenguajes"
-  items: ["C#", "C++", "Python"]
-- category: "Tools & Workflow"
-  category_es: "Herramientas y flujo de trabajo"
-  items: ["Git", "VS Code", "Trello"]
+  items: ["Unreal Engine 5", "Unity", "ShaderGraph", "Blender"]
+- category: "Languages & Tools"
+  category_es: "Lenguajes y herramientas"
+  items: ["C#", "C++", "Python", "Git", "VS Code"]
