@@ -223,7 +223,10 @@ section {
   display: flex;
   gap: 1.25rem;
   overflow-x: auto;
-  padding-bottom: 0.5rem;
+  /* Extra room around the cards so the hover zoom isn't clipped by the
+     scroll area; the negative margins cancel it so the layout is unchanged. */
+  padding: 1.5rem 1rem 2rem;
+  margin: -1.5rem -1rem -1.5rem;
   scrollbar-width: thin;
 }
 
@@ -634,9 +637,12 @@ section {
 /* ---------------------------------------------------------------
    Most recent works: clickable cards + detail overlay
 ------------------------------------------------------------------ */
-.credit-card { position: relative; }
+.credit-card {
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
 
-.credit-card__art { transition: border-color 0.15s ease; }
+.credit-card__art { transition: border-color 0.15s ease, box-shadow 0.25s ease; }
 
 .credit-card h3 { margin-top: 0.75rem; }
 .credit-card h3 .credit-card__open { margin: 0; }
@@ -662,6 +668,27 @@ section {
 
 .credit-card:hover .credit-card__art { border-color: var(--accent); }
 .credit-card:hover .credit-card__open { color: var(--accent); }
+
+/* Zoom the whole card on hover (mouse devices only) or keyboard focus */
+@media (hover: hover) {
+  .credit-card:hover { transform: scale(1.1); z-index: 2; }
+  .credit-card:hover .credit-card__art { box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45); }
+}
+.credit-card:has(.credit-card__open:focus-visible) { transform: scale(1.1); z-index: 2; }
+
+/* "View more →" label that shows the card can be opened */
+.credit-card__more {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+.credit-card__arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.credit-card:hover .credit-card__arrow { transform: translateX(5px); }
 
 .credit-card__open:focus-visible { outline: none; }
 .credit-card:has(.credit-card__open:focus-visible) .credit-card__art {

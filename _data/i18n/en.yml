@@ -19,9 +19,11 @@ nav:
 hero:
   meta: "Project Management · QA · Game Design · Live Visuals"
   view_work: "View the work"
+  puzzle_title: "Untangle the dots to learn what projects I like to manage the most"
 credits:
   title: "Works"
-  intro: "Take a Peek at what I have been working on."
+  intro: "Take a peek at what I have been working on. Click any project to learn more."
+  more: "View more"
 featured:
   eyebrow: "Featured projects"
   title: "Selected work"

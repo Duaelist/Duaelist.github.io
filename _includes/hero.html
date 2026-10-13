@@ -1,4 +1,7 @@
 {% include i18n.html %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap">
 <section class="hero" id="about">
   <div class="hero__text">
     <h1>{{ site.title }}</h1>
@@ -11,6 +14,7 @@
   </div>
 
   <div class="hero__viewport">
+    <p class="puzzle__title" id="puzzle-title">{{ t.hero.puzzle_title }}</p>
     <div class="puzzle" id="untangle" data-lang="{{ page.lang | default: site.lang }}">
       <canvas class="puzzle__canvas" role="img"></canvas>
       <div class="puzzle__win" role="status" hidden>
@@ -28,27 +32,29 @@
 </section>
 
 <style>
+  .hero__viewport { --puzzle-font: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .puzzle__title { font-family: var(--puzzle-font); max-width: 440px; margin: 0 auto .75rem; text-align: center; font-size: 1.15rem; font-weight: 700; line-height: 1.3; text-wrap: balance; }
   .puzzle { container-type: inline-size; position: relative; width: 100%; max-width: 440px; margin-inline: auto; background: #182440; border-radius: 18px; overflow: hidden; }
   .puzzle__canvas { display: block; width: 100%; aspect-ratio: 1 / 1; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
   .puzzle__win { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: .4rem; padding: 1rem; text-align: center; color: #fff; background: rgba(24, 36, 64, .9); }
   .puzzle__win[hidden] { display: none; }
-  .puzzle__win-title { margin: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: .05em .3em; font-size: 2rem; font-size: clamp(1.4rem, 8cqw, 2.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -.01em; }
+  .puzzle__win-title { margin: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: .05em .3em; font-size: 2rem; font-size: clamp(1.4rem, 8cqw, 2.6rem); font-family: var(--puzzle-font); font-weight: 700; line-height: 1.1; letter-spacing: -.01em; }
   .puzzle__chunk { display: inline-block; }
   .puzzle__chunk--lead { flex-basis: 100%; font-size: 1.5em; }
-  .puzzle__chunk--accent { color: #FAC74F; }
+  .puzzle__chunk--accent { color: #4ADE80; }
   .puzzle__win-moves { margin: .5rem 0 .4rem; color: rgba(255, 255, 255, .8); }
   .puzzle__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   /* Win animation: the dim fades in, all the text pops in together, then the moves + button rise in. */
   .puzzle__win.is-playing { animation: puzzle-dim .3s ease-out backwards; }
-  .puzzle__win.is-playing .puzzle__chunk { animation: puzzle-pop .5s cubic-bezier(.2, .9, .3, 1.25) backwards; }
+  .puzzle__win.is-playing .puzzle__chunk { animation: puzzle-pop .45s ease-out backwards; }
   .puzzle__win.is-playing .puzzle__win-moves,
   .puzzle__win.is-playing .puzzle__again { animation: puzzle-rise .35s ease-out .65s backwards; }
   @keyframes puzzle-dim { from { background: rgba(24, 36, 64, 0); } }
   @keyframes puzzle-pop {
-    0%   { opacity: 0; transform: scale(.3) translateY(14px) rotate(-6deg); }
-    60%  { opacity: 1; transform: scale(1.18) translateY(-2px) rotate(2deg); }
-    100% { opacity: 1; transform: none; }
+    0%   { opacity: 0; transform: scale(1); }
+    40%  { opacity: 1; transform: scale(1.3); }
+    100% { opacity: 1; transform: scale(1); }
   }
   @keyframes puzzle-rise { from { opacity: 0; transform: translateY(8px); visibility: hidden; } }
   @media (prefers-reduced-motion: reduce) {
@@ -88,7 +94,7 @@
     aria: 'Rompecabezas: arrastra los puntos por los rieles hasta que ninguna línea se cruce.',
     crossing: 'Líneas cruzadas', reset: 'Reiniciar nivel',
     resetTip: 'Vuelve a colocar los puntos como estaban al empezar este nivel',
-    chunks: ['Sip,', 'Eso es', 'Game Design'], winFull: 'Sip, Eso es Game Design',
+    chunks: ['¡Exacto!', 'Videojuegos.'], winFull: '¡Exacto! Videojuegos.',
     move: 'movimiento', moves: 'movimientos',
     next: 'Siguiente nivel', replay: 'Jugar de nuevo'
   } : {
@@ -96,7 +102,7 @@
     aria: 'Puzzle: drag the points along the rails until no line crosses another.',
     crossing: 'Lines crossing', reset: 'Restart level',
     resetTip: 'Put the dots back where they started in this level',
-    chunks: ['Yep!', "That's", 'Game Design'], winFull: "Yep! That's Game Design",
+    chunks: ['Exactly!', 'Videogames.'], winFull: 'Exactly! Videogames.',
     move: 'move', moves: 'moves',
     next: 'Next puzzle', replay: 'Play again'
   };
@@ -116,7 +122,7 @@
   var WORLD = 3.1;         // half-size of the visible world square
 
   var COL = {
-    rail: '#253A5C', cell: '#324F7D', line: '#FAC74F', cross: '#E83D3D',
+    rail: '#253A5C', cell: '#324F7D', line: '#4ADE80', cross: '#E83D3D',
     point: '#FFFFFF', drag: '#FFEB8C'
   };
 

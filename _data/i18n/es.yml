@@ -21,9 +21,11 @@ nav:
 hero:
   meta: "Gestión de proyectos · QA · Diseño de videojuegos · Visuales en vivo"
   view_work: "Ver el trabajo"
+  puzzle_title: "Desenreda los puntos para descubrir qué proyectos disfruto más gestionar"
 credits:
   title: "Trabajos"
-  intro: "Echa un vistazo a lo que he estado haciendo."
+  intro: "Echa un vistazo a lo que he estado haciendo. Haz clic en cualquier proyecto para saber más."
+  more: "Ver más"
 featured:
   eyebrow: "Proyectos destacados"
   title: "Trabajo seleccionado"

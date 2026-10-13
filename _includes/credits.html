@@ -17,6 +17,7 @@
       </div>
       <h3><button type="button" class="credit-card__open" data-credit="{{ forloop.index0 }}" aria-haspopup="dialog">{{ c_title }}</button></h3>
       <p class="meta">{{ c_role }} · {{ c.year }}</p>
+      <span class="credit-card__more" aria-hidden="true">{{ t.credits.more }} <span class="credit-card__arrow">→</span></span>
 
       <template id="credit-detail-{{ forloop.index0 }}">
         {% assign hero = c.banner | default: c.image %}
